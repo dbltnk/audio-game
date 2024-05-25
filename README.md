@@ -1,5 +1,7 @@
 # audio-game
 
+Mechanics, Script & Assets: https://docs.google.com/spreadsheets/d/15KXhxNPbEq__442WKRE5reA43ZHelhIVAbt75wnoSvY/edit#gid=0
+
 ## 25/05/2024 Chat
 
 * sort through many unnamed audio files
