@@ -43,10 +43,3 @@ MonoBehaviour:
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
-  - musicTitle: Credits Song
-    artistTitle: Pippo
-    albumTitle: Tavern Talk
-    musicClip: {fileID: 8300000, guid: 6d841acb9a3bdab92a529aace6b2e421, type: 3}
-    musicCover: {fileID: 21300000, guid: 7b4cd22d2a401713d8baae1f87c92039, type: 3}
-    excludeFromLibrary: 0
-    isModContent: 0

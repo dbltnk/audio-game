@@ -119,3 +119,11 @@ MonoBehaviour:
     appIconSmall: {fileID: 21300000, guid: 7ffead7e6de095045ab7d159d8b82255, type: 3}
     gradientLeft: {r: 0.6666667, g: 0.98039216, b: 0.60784316, a: 1}
     gradientRight: {r: 1, g: 0.5882353, b: 0.627451, a: 1}
+  - appTitle: Assembly
+    localizationKey: 
+    appIconPreview: {fileID: 2800000, guid: 0ee0ecc01c9bee8419c8b6300d73a8a3, type: 3}
+    appIconBig: {fileID: 21300000, guid: 0ee0ecc01c9bee8419c8b6300d73a8a3, type: 3}
+    appIconMedium: {fileID: 21300000, guid: 0ee0ecc01c9bee8419c8b6300d73a8a3, type: 3}
+    appIconSmall: {fileID: 21300000, guid: 0ee0ecc01c9bee8419c8b6300d73a8a3, type: 3}
+    gradientLeft: {r: 0.9136511, g: 0.8917509, b: 0.06412428, a: 1}
+    gradientRight: {r: 0.0742624, g: 0.69451785, b: 0.9675014, a: 1}
