@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f751a1e1edde242be719dda955ddfd, type: 3}
+  m_Name: Job Mail1
+  m_EditorClassIdentifier: 
+  mailFolder: 0
+  subject: 
+  from: claire@heatwave-music.com
+  fromName: Claire Salisbury
+  to: vincent@audiovan.com
+  time: 11:28 PM
+  date: 15 Jan, 2026
+  contactImage: {fileID: 0}
+  useCustomContent: 0
+  mailContent: 'Vince,
+
+
+    we''ve given you access to the Sharada recordings. Bear
+    in mind that these are a complete mess, some  files are unusable or have nothing
+    to do with the song. As always, Nick just batch-named and dumped the files on
+    the server, I confide in your usual tidiness to get a song out of this fuckup.
+
+
+
+    So
+    long,
+
+
+    Claire'
+  customContentPrefab: {fileID: 0}
+  attachments:
+  - attachmentTitle: Music Attachment
+    attachmentType: 0
+    musicAttachment: {fileID: 8300000, guid: 85e2036ad33791446904cb815b5dfdbd, type: 3}
+    pictureAttachment: {fileID: 0}
+    videoAttachment: {fileID: 0}
+    noteAttachment: 
+  - attachmentTitle: Note Attachment
+    attachmentType: 1
+    musicAttachment: {fileID: 0}
+    pictureAttachment: {fileID: 0}
+    videoAttachment: {fileID: 0}
+    noteAttachment: This is just a sample note created from a mail attachment!
+  - attachmentTitle: Picture Attachment
+    attachmentType: 2
+    musicAttachment: {fileID: 0}
+    pictureAttachment: {fileID: 21300000, guid: d59af46ad47654147899b61d910f9163, type: 3}
+    videoAttachment: {fileID: 0}
+    noteAttachment: 
+  subjectKey: SampleMail1Subject
+  contentKey: SampleMail1Content
