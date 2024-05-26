@@ -92,7 +92,7 @@ MonoBehaviour:
     messageLatency: 1
     messageTimer: 1.5
     replies:
-    - replyID: 
+    - replyID: Sorry
       replyBrief: Sorry...
       replyContent: Damn... sorry about that. I'll check my mails.
       replyFeedback: Get it together, Vince...
