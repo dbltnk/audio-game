@@ -45,23 +45,12 @@ MonoBehaviour:
     Claire'
   customContentPrefab: {fileID: 0}
   attachments:
-  - attachmentTitle: Music Attachment
-    attachmentType: 0
-    musicAttachment: {fileID: 8300000, guid: 85e2036ad33791446904cb815b5dfdbd, type: 3}
-    pictureAttachment: {fileID: 0}
-    videoAttachment: {fileID: 0}
-    noteAttachment: 
-  - attachmentTitle: Note Attachment
+  - attachmentTitle: 'Sharada Shared Folder: Access granted. Assets added to Assembly
+      Pro.'
     attachmentType: 1
     musicAttachment: {fileID: 0}
     pictureAttachment: {fileID: 0}
     videoAttachment: {fileID: 0}
     noteAttachment: This is just a sample note created from a mail attachment!
-  - attachmentTitle: Picture Attachment
-    attachmentType: 2
-    musicAttachment: {fileID: 0}
-    pictureAttachment: {fileID: 21300000, guid: d59af46ad47654147899b61d910f9163, type: 3}
-    videoAttachment: {fileID: 0}
-    noteAttachment: 
   subjectKey: SampleMail1Subject
   contentKey: SampleMail1Content
