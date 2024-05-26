@@ -18,6 +18,7 @@ public class PippoChat : MonoBehaviour
     IEnumerator StartChat()
     {
         yield return new WaitForSeconds(3.0f);
+        notificationManager.popupDuration = 7.0f;
         notificationManager.CreateNotification(icon, "New Email", "Claire Salisbury: Vince, we've given you access ...");
         yield return new WaitForSeconds(3.0f);
         messagingManager.CreateStoryTeller("PavelTest", "Pavel_00");
