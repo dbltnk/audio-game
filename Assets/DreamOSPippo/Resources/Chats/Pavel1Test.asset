@@ -16,11 +16,10 @@ MonoBehaviour:
   useDynamicMessages: 0
   useStoryTeller: 1
   messageList:
-  - messageContent: If you want to create text sequences, you can enable <b>StoryTeller</b>
-      feature.
+  - messageContent: Thanks
     objectType: 0
     messageAuthor: 0
-    sentTime: 
+    sentTime: 12/12/2022, 12:50
     audioMessage: {fileID: 0}
     imageMessage: {fileID: 0}
     messageKey: 
