@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -401,7 +401,6 @@ namespace Michsky.DreamOS
 
         public void CreateExternalMessage(Transform parent, string msgContent, string msgAuthor)
         {
-            Debug.Log("11111");
             GameObject msgObj = Instantiate(textMessageRecieved, new Vector3(0, 0, 0), Quaternion.identity);
             msgObj.transform.SetParent(parent, false);
 
@@ -431,16 +430,12 @@ namespace Michsky.DreamOS
 
             if (isSelf == true)
             {
-                Debug.Log("22222");
-
                 msgObj = Instantiate(textMessageSent, new Vector3(0, 0, 0), Quaternion.identity);
                 UpdateChatItem(chatList[tempIndex].chatTitle, message, false, time);
             }
 
             else
             {
-                Debug.Log("33333");
-
                 msgObj = Instantiate(textMessageRecieved, new Vector3(0, 0, 0), Quaternion.identity);
                 UpdateChatItem(chatList[tempIndex].chatTitle, message, true);
             }
@@ -490,8 +485,6 @@ namespace Michsky.DreamOS
 
         public void CreateCustomIndividualMessage(ChatLayoutPreset parent, string message, string time, string locKey = null)
         {
-            Debug.Log("4444");
-
             GameObject msgObj = Instantiate(textMessageRecieved, new Vector3(0, 0, 0), Quaternion.identity);
             msgObj.transform.SetParent(parent.messageParent, false);
 
@@ -499,9 +492,29 @@ namespace Michsky.DreamOS
             messagePreset.timeText.text = time;
             messagePreset.contentText.text = message;
 
-            print(useLocalization + " " + locKey);
-            print(message);
+            /* THIS SEEMS BUGGY; REMOVING FOR NOW (ALEX)
 
+            if (!useLocalization || string.IsNullOrEmpty(locKey))
+            {
+                messagePreset.contentText.text = message;
+            }
+
+            else
+            {
+                LocalizedObject tempLoc = messagePreset.contentText.gameObject.GetComponent<LocalizedObject>();
+
+                if (tempLoc != null)
+                {
+                    tempLoc.localizationKey = locKey;
+                    tempLoc.onLanguageChanged.AddListener(delegate { messagePreset.contentText.text = tempLoc.GetKeyOutput(tempLoc.localizationKey); });
+                    tempLoc.InitializeItem();
+                    tempLoc.UpdateItem();
+
+                    message = messagePreset.contentText.text;
+                }
+            }
+
+            */
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(msgObj.GetComponent<RectTransform>());
 
@@ -707,8 +720,6 @@ namespace Michsky.DreamOS
 
             else if (!waitingForTimer && chatList[layoutIndex].chatAsset.useDynamicMessages && chatList[layoutIndex].chatAsset.dynamicMessages[dynamicMessageIndex].messageContent == latestDynamicMessage)
             {
-                Debug.Log("5555");
-
                 GameObject msgObj = Instantiate(textMessageRecieved, new Vector3(0, 0, 0), Quaternion.identity);
                 ChatLayoutPreset layout = null;
 
