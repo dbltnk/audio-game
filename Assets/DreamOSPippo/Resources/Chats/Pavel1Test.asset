@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ca2ddbf6e022748a2db98a0c813735, type: 3}
+  m_Name: Pavel1Test
+  m_EditorClassIdentifier: 
+  saveConversation: 0
+  useDynamicMessages: 0
+  useStoryTeller: 1
+  messageList:
+  - messageContent: If you want to create text sequences, you can enable <b>StoryTeller</b>
+      feature.
+    objectType: 0
+    messageAuthor: 0
+    sentTime: 
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
+    messageKey: 
+  dynamicMessages:
+  - messageID: 
+    messageContent: 
+    replyContent: Yes, I'm on it.
+    replyLatency: 0
+    replyTimer: 0
+    replyBehavior: 0
+    enableReply: 0
+    runStoryteller: 
+    replyKey: 
+  storyTeller:
+  - itemID: SEQ_0
+    messageAuthor: 1
+    messageContent: 'Vince,
+
+
+      did you get those files sent over?
+
+
+      Pavel'
+    messageLatency: 1
+    messageTimer: 1.5
+    replies:
+    - replyID: Yes_Polite
+      replyBrief: Yes! (Excited)
+      replyContent: Yes, got them and looking forward to listening!
+      replyFeedback: Ok then, amazing how you still get excited about the job...
+        don't make me wait too long for this
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: SEQ_1
+      briefKey: SEQ0_R1B
+      contentKey: SEQ0_R1C
+      feedbackKey: SEQ0_R1F
+    - replyID: Yes_Neutral
+      replyBrief: Yes (Neutral)
+      replyContent: Yup, got them.
+      replyFeedback: Ok. Don't make me wait too long, the sooner we get this song
+        out the better.
+      feedbackLatency: 1
+      feedbackTimer: 1
+      callAfter: SEQ_2
+      briefKey: SEQ0_R2B
+      contentKey: SEQ0_R2C
+      feedbackKey: SEQ0_R2F
+    - replyID: No
+      replyBrief: Nope...
+      replyContent: "No, nothing yet. Should I have received something?\t"
+      replyFeedback: Claire must have sent you an email. Did you check??
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: SEQ_2
+      briefKey: SEQ0_R3B
+      contentKey: SEQ0_R3C
+      feedbackKey: SEQ0_R3F
+    messageKey: SEQ0_1
+  - itemID: SEQ_1
+    messageAuthor: 0
+    messageContent: All right then, talk to you later!
+    messageLatency: 1.5
+    messageTimer: 0
+    replies: []
+    messageKey: SEQ1_1
+  - itemID: SEQ_2
+    messageAuthor: 1
+    messageContent: Damn... sorry about that. I'll check my mails.
+    messageLatency: 1
+    messageTimer: 1.5
+    replies:
+    - replyID: 2_Sure
+      replyBrief: Sure
+      replyContent: Sure, why not :)
+      replyFeedback: Great! Let me know when you're available :)
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: 
+      briefKey: SEQ2_R1B
+      contentKey: SEQ2_R1C
+      feedbackKey: SEQ2_R1F
+    - replyID: 2_I'm busy
+      replyBrief: I'm busy
+      replyContent: I don't think we can, I'm pretty busy nowadays :/
+      replyFeedback: Ahh too bad. Maybe some other time then.
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: 
+      briefKey: SEQ2_R2B
+      contentKey: SEQ2_R2C
+      feedbackKey: SEQ2_R2F
+    - replyID: 2_Nope
+      replyBrief: Nope
+      replyContent: Nope, I'll pass, I don't wanna hang out with you.
+      replyFeedback: Ouch :'/
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: 
+      briefKey: SEQ2_R3B
+      contentKey: SEQ2_R3C
+      feedbackKey: SEQ2_R3F
+    messageKey: SEQ2_1
