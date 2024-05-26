@@ -9561,7 +9561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5311c868d9f0cad78adfd34e217a328e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 526a64c36d8b8f3418b9e0bc0c2e2566, type: 3}
+  defaultIcon: {fileID: 21300000, guid: 8f4a2c8baa348b54a83b9a1e92c67106, type: 3}
+  mailIcon: {fileID: 21300000, guid: 526a64c36d8b8f3418b9e0bc0c2e2566, type: 3}
   messagingManager: {fileID: 166278272}
   notificationManager: {fileID: 170115055}
 --- !u!1 &2114340326
@@ -18090,7 +18091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6708618083241401255, guid: d9efbfd96cb0cd94d991f24ad03dca3e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000030517578
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6708618083268860365, guid: d9efbfd96cb0cd94d991f24ad03dca3e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -21786,7 +21787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7342862762429136488, guid: d9efbfd96cb0cd94d991f24ad03dca3e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7346326977436238908, guid: d9efbfd96cb0cd94d991f24ad03dca3e, type: 3}
       propertyPath: m_AnchorMax.y

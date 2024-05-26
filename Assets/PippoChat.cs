@@ -6,11 +6,27 @@ using UnityEngine.UI;
 
 public class PippoChat : MonoBehaviour
 {
-    public Sprite icon;
+    public static PippoChat Instance { get; private set; }
+
+    public Sprite defaultIcon;
+    public Sprite mailIcon;
     public MessagingManager messagingManager;
     public NotificationManager notificationManager;
 
-    public void Start()
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Start()
     {
         StartCoroutine(StartChat());
     }
@@ -19,8 +35,13 @@ public class PippoChat : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
         notificationManager.popupDuration = 7.0f;
-        notificationManager.CreateNotification(icon, "New Email", "Claire Salisbury: Vince, we've given you access ...");
+        notificationManager.CreateNotification(mailIcon, "New Email", "Claire Salisbury: Vince, we've given you access ...");
         yield return new WaitForSeconds(3.0f);
         messagingManager.CreateStoryTeller("PavelTest", "Pavel_00");
+    }
+
+    public void CreateNotification(string title, string content)
+    {
+        notificationManager.CreateNotification(defaultIcon, title, content);
     }
 }

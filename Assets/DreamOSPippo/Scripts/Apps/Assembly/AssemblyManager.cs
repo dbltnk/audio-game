@@ -48,6 +48,7 @@ namespace Michsky.DreamOS
         void OnEnable()
         {
             StopAllAudio();
+            PippoChat.Instance.CreateNotification("Assembly Manager", "Assembly Manager has been activated.");
         }
 
         public void RestartAllAudio()
