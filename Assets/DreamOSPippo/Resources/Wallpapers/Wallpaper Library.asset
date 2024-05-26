@@ -27,3 +27,5 @@ MonoBehaviour:
     wallpaperSprite: {fileID: 21300000, guid: 21a2cfd9c8458af489b615009e5a0156, type: 3}
   - wallpaperID: The Exiled KS
     wallpaperSprite: {fileID: 21300000, guid: c1a369d284c6c584d922f8630601ba9e, type: 3}
+  - wallpaperID: pippotest
+    wallpaperSprite: {fileID: 21300000, guid: 2f92fa1cdb2684cec80cb6050c47ec1e, type: 3}

@@ -65,7 +65,7 @@ MonoBehaviour:
         out the better.
       feedbackLatency: 1
       feedbackTimer: 1
-      callAfter: SEQ_2
+      callAfter: SEQ_1
       briefKey: SEQ0_R2B
       contentKey: SEQ0_R2C
       feedbackKey: SEQ0_R2F
@@ -88,39 +88,19 @@ MonoBehaviour:
     replies: []
     messageKey: SEQ1_1
   - itemID: SEQ_2
-    messageAuthor: 1
+    messageAuthor: 0
     messageContent: Damn... sorry about that. I'll check my mails.
     messageLatency: 1
     messageTimer: 1.5
     replies:
-    - replyID: 2_Sure
-      replyBrief: Sure
-      replyContent: Sure, why not :)
-      replyFeedback: Great! Let me know when you're available :)
-      feedbackLatency: 1
-      feedbackTimer: 1.5
+    - replyID: 
+      replyBrief: 
+      replyContent: 
+      replyFeedback: Get it together, Vince...
+      feedbackLatency: 0
+      feedbackTimer: 0
       callAfter: 
-      briefKey: SEQ2_R1B
-      contentKey: SEQ2_R1C
-      feedbackKey: SEQ2_R1F
-    - replyID: 2_I'm busy
-      replyBrief: I'm busy
-      replyContent: I don't think we can, I'm pretty busy nowadays :/
-      replyFeedback: Ahh too bad. Maybe some other time then.
-      feedbackLatency: 1
-      feedbackTimer: 1.5
-      callAfter: 
-      briefKey: SEQ2_R2B
-      contentKey: SEQ2_R2C
-      feedbackKey: SEQ2_R2F
-    - replyID: 2_Nope
-      replyBrief: Nope
-      replyContent: Nope, I'll pass, I don't wanna hang out with you.
-      replyFeedback: Ouch :'/
-      feedbackLatency: 1
-      feedbackTimer: 1.5
-      callAfter: 
-      briefKey: SEQ2_R3B
-      contentKey: SEQ2_R3C
-      feedbackKey: SEQ2_R3F
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
     messageKey: SEQ2_1
