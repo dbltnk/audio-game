@@ -18,14 +18,140 @@ MonoBehaviour:
   - musicTitle: Lilith_00
     artistTitle: Naomi Sharada
     albumTitle: 
-    musicClip: {fileID: 8300000, guid: 8297c7db6d0f38646b652472f34f5c04, type: 3}
+    musicClip: {fileID: 8300000, guid: 0d5a4c478c85641b8af17292d3c8d655, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
-  - musicTitle: Lilith_01
+  - musicTitle: Lilith01
     artistTitle: Naomi Sharada
     albumTitle: 
-    musicClip: {fileID: 8300000, guid: 8297c7db6d0f38646b652472f34f5c04, type: 3}
+    musicClip: {fileID: 8300000, guid: a960f7a48f2b64fada6f905cdcaa758e, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_02
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 028207cb583a0405a81f3a3f53f76f8f, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_03
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 50dcb1dc496aa4bba882b01123daef08, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_04
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 171f282414beb4e45b85b25c40d832d4, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_05
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: c3078444f7c6e4be8905b351bcbd76dd, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_06
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 4fa229140ab5f490389be2fa050caddc, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_07
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: b5c96069559344e80b264f9716456c49, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_08
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 778d447aa5cd245a89814b99dee2eea7, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_09
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 73a5ecba0647845a9a050c517a1e3997, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith10
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: ab0b72dcf79c942478554104e92c63e1, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_11
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 8ee62a878c9e84729a19870eb0cbf164, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_12
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 9da01f07a86294ad09a8d62b832e31b2, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_13
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 694455e6c1ddf48a18b7e32496d8ef2a, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_14
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 0f3d402617b1a49b5aa4f9f11263d265, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_15
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 6d33d4ac405614f5abfc84cf030d6323, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith16
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 312278d1f6b754ea3a04694a1b6922c6, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_17
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 66f7c5a9c100b4c3ab82cbe49e731a11, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_18
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: c3078444f7c6e4be8905b351bcbd76dd, type: 3}
+    musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    excludeFromLibrary: 0
+    isModContent: 0
+  - musicTitle: Lilith_19
+    artistTitle: Naomi Sharada
+    albumTitle: 
+    musicClip: {fileID: 8300000, guid: 8677add8c58a54057a6a88b88c7bdb22, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
