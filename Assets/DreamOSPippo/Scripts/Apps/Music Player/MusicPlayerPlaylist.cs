@@ -8,6 +8,7 @@ namespace Michsky.DreamOS
     {
         // Settings
         public Sprite coverImage;
+
         public string playlistName;
 
         // Playlist Content
@@ -21,6 +22,8 @@ namespace Michsky.DreamOS
             public string albumTitle = "Album Title";
             public AudioClip musicClip;
             public Sprite musicCover;
+            public Sprite musicSpectrogram;
+
             [HideInInspector] public bool excludeFromLibrary = false;
             [HideInInspector] public bool isModContent = false;
         }

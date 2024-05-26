@@ -20,6 +20,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 0d5a4c478c85641b8af17292d3c8d655, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: d8469f56d01e946e5aca964284f2b6cb, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_01
@@ -27,6 +28,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 028207cb583a0405a81f3a3f53f76f8f, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: b723f8deb951d4d4a9bb4b5a87bfe9af, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_02
@@ -34,6 +36,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: a960f7a48f2b64fada6f905cdcaa758e, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 428d68b0ecca0414394da9c02d5fbead, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_03
@@ -41,6 +44,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 50dcb1dc496aa4bba882b01123daef08, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 10b0df3410d2f4d79be69d58fa14d141, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_04
@@ -48,6 +52,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 171f282414beb4e45b85b25c40d832d4, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 10152673e521142bd9b28da83a35ccbe, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_05
@@ -55,6 +60,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: c3078444f7c6e4be8905b351bcbd76dd, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 4c478a3fcd27c40ff8dd8e73c7164d09, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_06
@@ -62,6 +68,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 4fa229140ab5f490389be2fa050caddc, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 8efca1310da744bf1bf30a41b2e23144, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_07
@@ -69,6 +76,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: b5c96069559344e80b264f9716456c49, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 46ce2d6f029f9424986fff3152006266, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_08
@@ -76,6 +84,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 778d447aa5cd245a89814b99dee2eea7, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: cb631d30f2d2642cd969838da4cf766f, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_09
@@ -83,6 +92,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: ab0b72dcf79c942478554104e92c63e1, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 2b140e85ae27a4853a005a0578cfbd22, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_10
@@ -90,6 +100,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 73a5ecba0647845a9a050c517a1e3997, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: d74ba94900c774bd3b75731cf59e7771, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_11
@@ -97,6 +108,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 8ee62a878c9e84729a19870eb0cbf164, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: d5e3b33655f14490c8c801a0417ba5ae, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_12
@@ -104,6 +116,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 9da01f07a86294ad09a8d62b832e31b2, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 0d24d7b39eed947dc93394a665e5cc91, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_13
@@ -111,6 +124,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 694455e6c1ddf48a18b7e32496d8ef2a, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 909ddecba4b9b48189134616ac9fdc2a, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_14
@@ -118,6 +132,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 0f3d402617b1a49b5aa4f9f11263d265, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 3bfe94daf40784a41904ba1ff33a0e3b, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_15
@@ -125,6 +140,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 6d33d4ac405614f5abfc84cf030d6323, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 6237d5d4ae7dd44bc8febf8df19e3e3a, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_16
@@ -132,6 +148,7 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 66f7c5a9c100b4c3ab82cbe49e731a11, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: da6b4848c707942fda451ea9d98a2325, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_17
@@ -139,13 +156,15 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 312278d1f6b754ea3a04694a1b6922c6, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 52623887af5ed4245a38eb7edd338d9c, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_18
     artistTitle: Naomi Sharada
     albumTitle: 
-    musicClip: {fileID: 8300000, guid: c3078444f7c6e4be8905b351bcbd76dd, type: 3}
+    musicClip: {fileID: 8300000, guid: c2df29e4b8a0e481dae38efbce6f1611, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: 2458c5511db614d728c8f073e408b9be, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
   - musicTitle: Lilith_19
@@ -153,5 +172,6 @@ MonoBehaviour:
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 8677add8c58a54057a6a88b88c7bdb22, type: 3}
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
+    musicSpectrogram: {fileID: 21300000, guid: dba44d6c13ee549fda6ef2163806e307, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
