@@ -55,9 +55,9 @@ MonoBehaviour:
       feedbackLatency: 1
       feedbackTimer: 1.5
       callAfter: Pavel_01
-      briefKey: SEQ0_R1B
-      contentKey: SEQ0_R1C
-      feedbackKey: SEQ0_R1F
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
     - replyID: Yes_Neutral
       replyBrief: Yes (Neutral)
       replyContent: Yup, got them.
@@ -66,36 +66,36 @@ MonoBehaviour:
       feedbackLatency: 1
       feedbackTimer: 1
       callAfter: Pavel_01
-      briefKey: SEQ0_R2B
-      contentKey: SEQ0_R2C
-      feedbackKey: SEQ0_R2F
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
     - replyID: No
       replyBrief: Nope...
       replyContent: "No, nothing yet. Should I have received something?\t"
       replyFeedback: Claire must have sent you an email. Did you check??
-      feedbackLatency: 1
-      feedbackTimer: 1.5
+      feedbackLatency: 2.5
+      feedbackTimer: 3
       callAfter: Pavel_02
-      briefKey: SEQ0_R3B
-      contentKey: SEQ0_R3C
-      feedbackKey: SEQ0_R3F
-    messageKey: SEQ0_1
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    messageKey: 
   - itemID: Pavel_01
     messageAuthor: 0
     messageContent: All right then, talk to you later!
     messageLatency: 1.5
     messageTimer: 0
     replies: []
-    messageKey: SEQ1_1
+    messageKey: 
   - itemID: Pavel_02
     messageAuthor: 0
-    messageContent: Damn... sorry about that. I'll check my mails.
+    messageContent: Oh?
     messageLatency: 1
     messageTimer: 1.5
     replies:
     - replyID: 
-      replyBrief: 
-      replyContent: 
+      replyBrief: Sorry...
+      replyContent: Damn... sorry about that. I'll check my mails.
       replyFeedback: Get it together, Vince...
       feedbackLatency: 2.03
       feedbackTimer: 1.68
@@ -103,4 +103,4 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
-    messageKey: SEQ2_1
+    messageKey: 
