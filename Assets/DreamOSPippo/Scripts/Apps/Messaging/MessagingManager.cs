@@ -46,8 +46,8 @@ namespace Michsky.DreamOS
         public bool useLocalization = true;
         public bool dynamicSorting = true;
         public bool saveMessageHistory = false;
-        [SerializeField] [TextArea(2, 3)] private string audioMessageNotification = "Sent an audio message";
-        [SerializeField] [TextArea(2, 3)] private string imageMessageNotification = "Sent an image";
+        [SerializeField][TextArea(2, 3)] private string audioMessageNotification = "Sent an audio message";
+        [SerializeField][TextArea(2, 3)] private string imageMessageNotification = "Sent an image";
 
         // Helpers
         bool sentSoundHelper = false;
@@ -92,7 +92,7 @@ namespace Michsky.DreamOS
 #if UNITY_2023_2_OR_NEWER
             if (photoGalleryManager == null && FindObjectsByType<PhotoGalleryManager>(FindObjectsSortMode.None).Length > 0) { photoGalleryManager = FindObjectsByType<PhotoGalleryManager>(FindObjectsSortMode.None)[0]; }
 #else
-            if (photoGalleryManager == null && FindObjectsOfType(typeof(PhotoGalleryManager)).Length > 0) { photoGalleryManager = (PhotoGalleryManager)FindObjectsOfType(typeof(PhotoGalleryManager))[0]; }  
+            if (photoGalleryManager == null && FindObjectsOfType(typeof(PhotoGalleryManager)).Length > 0) { photoGalleryManager = (PhotoGalleryManager)FindObjectsOfType(typeof(PhotoGalleryManager))[0]; }
 #endif
             if (storyTellerAnimator != null) { cachedStorytellerPanelLength = DreamOSInternalTools.GetAnimatorClipLength(storyTellerAnimator, "StoryTeller_In") + 0.1f; }
 
@@ -293,9 +293,9 @@ namespace Michsky.DreamOS
 
         void CreateCustomMessageFromInput(ChatLayoutPreset parent, bool isSelf)
         {
-            if (parent == null) 
-            { 
-                parent = selectedLayout; 
+            if (parent == null)
+            {
+                parent = selectedLayout;
             }
 
             if (string.IsNullOrEmpty(messageInput.text) == true || messageInput.text == " ")
@@ -332,7 +332,7 @@ namespace Michsky.DreamOS
                 CreateStoryTeller(chatList[currentLayout].chatTitle, latestSTMessage);
             }
 
-            if (AudioManager.instance != null && !sentSoundHelper) 
+            if (AudioManager.instance != null && !sentSoundHelper)
             {
                 AudioManager.instance.audioSource.PlayOneShot(sentMessageSFX);
             }
@@ -367,15 +367,15 @@ namespace Michsky.DreamOS
 
             GameObject tempMsgObj = textMessageSent;
             textMessageSent = textMessageRecieved;
-            tempInputMessage = messageInput.text;   
-    
+            tempInputMessage = messageInput.text;
+
             LocalizedObject tempLoc = gameObject.GetComponent<LocalizedObject>();
 
             if (!useLocalization || string.IsNullOrEmpty(locKey) || tempLoc == null || !tempLoc.CheckLocalizationStatus()) { messageInput.text = msgContent; }
             else if (tempLoc != null) { messageInput.text = tempLoc.GetKeyOutput(locKey); }
 
             CreateCustomMessageFromInput(parent, false);
-          
+
             textMessageSent = tempMsgObj;
 
             if (useNotifications && !parent.gameObject.activeInHierarchy || useNotifications && selectedLayout.name != parent.name)
@@ -401,6 +401,7 @@ namespace Michsky.DreamOS
 
         public void CreateExternalMessage(Transform parent, string msgContent, string msgAuthor)
         {
+            Debug.Log("11111");
             GameObject msgObj = Instantiate(textMessageRecieved, new Vector3(0, 0, 0), Quaternion.identity);
             msgObj.transform.SetParent(parent, false);
 
@@ -430,12 +431,16 @@ namespace Michsky.DreamOS
 
             if (isSelf == true)
             {
+                Debug.Log("22222");
+
                 msgObj = Instantiate(textMessageSent, new Vector3(0, 0, 0), Quaternion.identity);
                 UpdateChatItem(chatList[tempIndex].chatTitle, message, false, time);
             }
 
             else
             {
+                Debug.Log("33333");
+
                 msgObj = Instantiate(textMessageRecieved, new Vector3(0, 0, 0), Quaternion.identity);
                 UpdateChatItem(chatList[tempIndex].chatTitle, message, true);
             }
@@ -485,27 +490,18 @@ namespace Michsky.DreamOS
 
         public void CreateCustomIndividualMessage(ChatLayoutPreset parent, string message, string time, string locKey = null)
         {
+            Debug.Log("4444");
+
             GameObject msgObj = Instantiate(textMessageRecieved, new Vector3(0, 0, 0), Quaternion.identity);
             msgObj.transform.SetParent(parent.messageParent, false);
 
             ChatMessagePreset messagePreset = msgObj.GetComponent<ChatMessagePreset>();
             messagePreset.timeText.text = time;
+            messagePreset.contentText.text = message;
 
-            if (!useLocalization || string.IsNullOrEmpty(locKey)) { messagePreset.contentText.text = message; }
-            else
-            {
-                LocalizedObject tempLoc = messagePreset.contentText.gameObject.GetComponent<LocalizedObject>();
+            print(useLocalization + " " + locKey);
+            print(message);
 
-                if (tempLoc != null)
-                {
-                    tempLoc.localizationKey = locKey;
-                    tempLoc.onLanguageChanged.AddListener(delegate { messagePreset.contentText.text = tempLoc.GetKeyOutput(tempLoc.localizationKey); });
-                    tempLoc.InitializeItem();
-                    tempLoc.UpdateItem();
-
-                    message = messagePreset.contentText.text;
-                }
-            }
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(msgObj.GetComponent<RectTransform>());
 
@@ -711,6 +707,8 @@ namespace Michsky.DreamOS
 
             else if (!waitingForTimer && chatList[layoutIndex].chatAsset.useDynamicMessages && chatList[layoutIndex].chatAsset.dynamicMessages[dynamicMessageIndex].messageContent == latestDynamicMessage)
             {
+                Debug.Log("5555");
+
                 GameObject msgObj = Instantiate(textMessageRecieved, new Vector3(0, 0, 0), Quaternion.identity);
                 ChatLayoutPreset layout = null;
 
@@ -751,17 +749,17 @@ namespace Michsky.DreamOS
             else if (waitingForTimer && chatList[layoutIndex].chatAsset.dynamicMessages[dynamicMessageIndex].messageContent == latestDynamicMessage)
             {
                 allowInputSubmit = false;
-              
+
                 GameObject tempHandlerObj = new GameObject();
                 tempHandlerObj.name = "[Temp Dynamic Message Handler]";
-           
+
                 DynamicMessageHandler tempHandler = tempHandlerObj.AddComponent<DynamicMessageHandler>();
                 tempHandler.manager = this;
                 tempHandler.StartCoroutine(tempHandler.HandleDynamicMessage(chatList[layoutIndex].chatAsset.dynamicMessages[dynamicMessageIndex].replyLatency, layoutIndex));
             }
 
             // Process after reply behavior
-            if(chatList[layoutIndex].chatAsset.dynamicMessages[dynamicMessageIndex].replyBehavior == MessagingChat.DynamicMessageReplyBehavior.DisableReply)
+            if (chatList[layoutIndex].chatAsset.dynamicMessages[dynamicMessageIndex].replyBehavior == MessagingChat.DynamicMessageReplyBehavior.DisableReply)
             {
                 chatList[layoutIndex].chatAsset.dynamicMessages[dynamicMessageIndex].enableReply = false;
             }
@@ -857,7 +855,7 @@ namespace Michsky.DreamOS
         public string GetTimeData()
         {
             string tempValue = null;
-            
+
             if (DateAndTimeManager.instance != null && DateAndTimeManager.instance.useShortTimeFormat)
             {
                 if (DateAndTimeManager.instance.currentMinute.ToString().Length == 1) { tempValue = DateAndTimeManager.instance.currentHour + ":" + "0" + DateAndTimeManager.instance.currentMinute; }
@@ -940,7 +938,7 @@ namespace Michsky.DreamOS
             else { mcip.UpdateLatestMessage(newMessage, time); }
 
             if (selectedLayout != null && !selectedLayout.gameObject.activeInHierarchy && useUnreadBadge == true) { mcip.EnableNotificationBadge(true); }
-            else if (selectedLayout != null && chatTitle != selectedLayout.name && useUnreadBadge) { mcip.EnableNotificationBadge(true); }         
+            else if (selectedLayout != null && chatTitle != selectedLayout.name && useUnreadBadge) { mcip.EnableNotificationBadge(true); }
         }
 
         public void ChangeStatus(Status status, string chatTitle)
