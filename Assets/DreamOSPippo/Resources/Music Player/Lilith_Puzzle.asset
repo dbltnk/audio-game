@@ -134,7 +134,7 @@ MonoBehaviour:
     musicCover: {fileID: 21300000, guid: b13a8885e6844bc4eb7ca58c32cc0fc9, type: 3}
     excludeFromLibrary: 0
     isModContent: 0
-  - musicTitle: Lilith17
+  - musicTitle: Lilith_17
     artistTitle: Naomi Sharada
     albumTitle: 
     musicClip: {fileID: 8300000, guid: 312278d1f6b754ea3a04694a1b6922c6, type: 3}
