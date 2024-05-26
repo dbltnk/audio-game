@@ -35,7 +35,7 @@ MonoBehaviour:
     runStoryteller: 
     replyKey: 
   storyTeller:
-  - itemID: SEQ_0
+  - itemID: Pavel_00
     messageAuthor: 1
     messageContent: 'Vince,
 
@@ -47,14 +47,14 @@ MonoBehaviour:
     messageLatency: 1
     messageTimer: 1.5
     replies:
-    - replyID: Yes_Polite
+    - replyID: Pavel_00_Yes_Polite
       replyBrief: Yes! (Excited)
       replyContent: Yes, got them and looking forward to listening!
       replyFeedback: Ok then, amazing how you still get excited about the job...
         don't make me wait too long for this
       feedbackLatency: 1
       feedbackTimer: 1.5
-      callAfter: SEQ_1
+      callAfter: Pavel_01
       briefKey: SEQ0_R1B
       contentKey: SEQ0_R1C
       feedbackKey: SEQ0_R1F
@@ -65,7 +65,7 @@ MonoBehaviour:
         out the better.
       feedbackLatency: 1
       feedbackTimer: 1
-      callAfter: SEQ_1
+      callAfter: Pavel_01
       briefKey: SEQ0_R2B
       contentKey: SEQ0_R2C
       feedbackKey: SEQ0_R2F
@@ -75,19 +75,19 @@ MonoBehaviour:
       replyFeedback: Claire must have sent you an email. Did you check??
       feedbackLatency: 1
       feedbackTimer: 1.5
-      callAfter: SEQ_2
+      callAfter: Pavel_02
       briefKey: SEQ0_R3B
       contentKey: SEQ0_R3C
       feedbackKey: SEQ0_R3F
     messageKey: SEQ0_1
-  - itemID: SEQ_1
+  - itemID: Pavel_01
     messageAuthor: 0
     messageContent: All right then, talk to you later!
     messageLatency: 1.5
     messageTimer: 0
     replies: []
     messageKey: SEQ1_1
-  - itemID: SEQ_2
+  - itemID: Pavel_02
     messageAuthor: 0
     messageContent: Damn... sorry about that. I'll check my mails.
     messageLatency: 1
@@ -97,8 +97,8 @@ MonoBehaviour:
       replyBrief: 
       replyContent: 
       replyFeedback: Get it together, Vince...
-      feedbackLatency: 0
-      feedbackTimer: 0
+      feedbackLatency: 2.03
+      feedbackTimer: 1.68
       callAfter: 
       briefKey: 
       contentKey: 
