@@ -7,19 +7,31 @@ public class AssemblyTrack : MonoBehaviour
 {
     public GameObject ParentLeft;
     public GameObject ParentRight;
+    public AudioSource AudioSource;
+    public AudioClip AudioClip;
+    public Michsky.DreamOS.AssemblyManager AssemblyManager;
+
+    void Start()
+    {
+        AudioSource = GetComponent<AudioSource>();
+    }
 
     public void TogglePosition()
     {
-        // change the parent object
+        AudioSource.clip = AudioClip;
+
         if (transform.parent == ParentLeft.transform)
         {
             transform.SetParent(ParentRight.transform);
             SortChildrenByName(ParentRight.transform);
+            AssemblyManager.RestartAllAudio();
+            AudioSource.Play();
         }
         else
         {
             transform.SetParent(ParentLeft.transform);
             SortChildrenByName(ParentLeft.transform);
+            AudioSource.Stop();
         }
     }
 

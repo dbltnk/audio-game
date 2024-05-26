@@ -32,6 +32,7 @@ namespace Michsky.DreamOS
                 GameObject asset = Instantiate(assetPrefab, assetsRoot.transform);
                 PlaylistTrack track = asset.GetComponent<PlaylistTrack>();
                 MusicPlayerPlaylist.MusicItem item = assetsPlaylist.playlist[i];
+                asset.name = item.artistTitle + " - " + item.musicTitle;
                 track.coverImage.sprite = item.musicCover;
                 track.titleText.text = item.musicTitle;
                 track.artistText.text = item.artistTitle;
@@ -39,7 +40,36 @@ namespace Michsky.DreamOS
                 AssemblyTrack assemblyTrack = asset.GetComponent<AssemblyTrack>();
                 assemblyTrack.ParentLeft = assetsRoot;
                 assemblyTrack.ParentRight = assemblyRoot;
-                asset.name = item.artistTitle + " - " + item.musicTitle;
+                assemblyTrack.AudioClip = item.musicClip;
+                assemblyTrack.AssemblyManager = this;
+            }
+        }
+
+        void OnEnable()
+        {
+            StopAllAudio();
+        }
+
+        public void RestartAllAudio()
+        {
+            foreach (AudioSource audioSource in FindObjectsOfType<AudioSource>())
+            {
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                    audioSource.Play();
+                }
+            }
+        }
+
+        public void StopAllAudio()
+        {
+            foreach (AudioSource audioSource in FindObjectsOfType<AudioSource>())
+            {
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                }
             }
         }
 
