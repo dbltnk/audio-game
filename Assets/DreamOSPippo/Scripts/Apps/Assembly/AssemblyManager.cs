@@ -42,6 +42,8 @@ namespace Michsky.DreamOS
                 assemblyTrack.ParentRight = assemblyRoot;
                 assemblyTrack.AudioClip = item.musicClip;
                 assemblyTrack.AssemblyManager = this;
+                assemblyTrack.Spectrogram.overrideSprite = item.musicSpectrogram;
+                assemblyTrack.Resize(item.musicClip.length);
             }
         }
 

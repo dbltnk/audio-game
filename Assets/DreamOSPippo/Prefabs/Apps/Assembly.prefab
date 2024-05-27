@@ -782,12 +782,12 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 125
   m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
+  m_ChildControlWidth: 0
   m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
+  m_ChildScaleWidth: 1
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
 --- !u!114 &5414534481050762528
@@ -9811,7 +9811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114442620489648796, guid: 483ba67a0b287dd4aaac6ccbd5498281, type: 3}
       propertyPath: m_Size
-      value: 0.39909092
+      value: 0.39328355
       objectReference: {fileID: 0}
     - target: {fileID: 114442620489648796, guid: 483ba67a0b287dd4aaac6ccbd5498281, type: 3}
       propertyPath: m_Value
