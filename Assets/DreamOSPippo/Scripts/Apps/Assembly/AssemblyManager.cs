@@ -50,7 +50,6 @@ namespace Michsky.DreamOS
         void OnEnable()
         {
             StopAllAudio();
-            PippoChat.Instance.CreateNotification("Assembly Manager", "Assembly Manager has been activated.");
         }
 
         public void RestartAllAudio()
@@ -73,6 +72,56 @@ namespace Michsky.DreamOS
                 {
                     audioSource.Stop();
                 }
+            }
+        }
+
+        public void TryToExport()
+        {
+            bool hasCorrectGuitars = false;
+            bool hasCorrectPerc = false;
+            bool hasCorrectVoice = false;
+            bool hasCorrectBass = false;
+
+            foreach (Transform child in assemblyRoot.transform)
+            {
+
+                AssemblyTrack track = child.GetComponent<AssemblyTrack>();
+
+                if (track.AudioClip.name.Contains("wrong"))
+                {
+                    //Debug.LogWarning("Wrong Audio Clip!");
+                    PippoChat.Instance.CreateNotification("Assembly Result", "Something sounds off ...");
+                    return;
+                }
+                else if (track.AudioClip.name.Contains("correct_guitars"))
+                {
+                    hasCorrectGuitars = true;
+                }
+                else if (track.AudioClip.name.Contains("correct_perc"))
+                {
+                    hasCorrectPerc = true;
+                }
+                else if (track.AudioClip.name.Contains("correct_voice"))
+                {
+                    hasCorrectVoice = true;
+                }
+                else if (track.AudioClip.name.Contains("correct_bass"))
+                {
+                    hasCorrectBass = true;
+                }
+            }
+
+            if (hasCorrectGuitars && hasCorrectPerc && hasCorrectVoice && hasCorrectBass)
+            {
+                // Debug.Log("All is correct!");
+                PippoChat.Instance.CreateNotification("Assembly Result", "That sounds great!");
+                return;
+            }
+            else
+            {
+                // Debug.LogWarning("Something is missing!");
+                PippoChat.Instance.CreateNotification("Assembly Result", "Something is missing.");
+                return;
             }
         }
 
