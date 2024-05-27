@@ -56,5 +56,16 @@
         "temp/": true,
         "Temp/": true
     },
+    "files.watcherExclude": {
+        "**/node_modules/**": true,
+        "**/.git/**": true,
+        "**/Library/**": true,
+        "**/Temp/**": true,
+        "**/Logs/**": true,
+        "**/Obj/**": true,
+        "**/Build/**": true,
+        "**/Builds/**": true,
+        "**/Packages/**": true
+    },
     "dotnet.defaultSolution": "audio-game.sln"
 }
