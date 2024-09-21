@@ -9,7 +9,6 @@ DIALOGUE SCRIPTING GUIDE
    - Use [LIVE MESSAGES] to define the interactive dialogue
    - Use [ID] for each dialogue segment (e.g., [Pavel_00])
    - {latency: X, timer: Y} sets timing (optional)
-   - > for other character's dialogue
    - Numbers (1., 2., etc.) for Vince's response options
    
 2. MESSAGE HISTORY:
@@ -58,7 +57,7 @@ content: Sorry!!! | author: Vince | time: 12:54
 [LIVE MESSAGES]
 
 [Pavel_00]
-> Vince,
+Vince,
 
 did you get those files sent over?
 
@@ -75,13 +74,13 @@ Pavel
    Claire must have sent you an email. Did you check??
 
 [Pavel_01] {latency: 1.5, timer: 0}
-> All right then, talk to you later!
+   All right then, talk to you later!
 
 1. Wait! | Actually, before you go, can I ask something? | Pavel_06
    Yes, what is it?
 
 [Pavel_02] {latency: 3, timer: 1.5}
-> So, did you get it?
+   So, did you get it?
 
 1. Sorry... | Damn... sorry about that. I'll check my emails. | Pavel_03
    Get it together, Vince...
@@ -90,7 +89,7 @@ Pavel
    What? I am super good at dropboxing!
 
 [Pavel_03] {latency: 1, timer: 1.0}
-> Anyway, just make sure you check your email. We need to get this done ASAP.
+   Anyway, just make sure you check your email. We need to get this done ASAP.
 
 1. Will do. | All right, I'll check it right now. | END
    Thanks, Vince.
@@ -106,7 +105,7 @@ Pavel
    Please check your inbox more regularly.
 
 [Pavel_05] {latency: 1, timer: 1.0}
-> Just make sure you're on top of it.
+   Just make sure you're on top of it.
 
 1. Will do. | Will do. | END
    Good.
