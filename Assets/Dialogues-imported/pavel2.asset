@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ca2ddbf6e022748a2db98a0c813735, type: 3}
+  m_Name: pavel2
+  m_EditorClassIdentifier: 
+  saveConversation: 0
+  useDynamicMessages: 0
+  useStoryTeller: 1
+  messageList:
+  - messageContent: Hey Pavel, got a minute?
+    objectType: 0
+    messageAuthor: 0
+    sentTime: 12:45
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
+    messageKey: 
+  - messageContent: Sure, what's up?
+    objectType: 0
+    messageAuthor: 1
+    sentTime: 12:47
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
+    messageKey: 
+  - messageContent: Just sent over those files you asked for.
+    objectType: 0
+    messageAuthor: 0
+    sentTime: 12:49
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
+    messageKey: 
+  - messageContent: Great, thanks! I'll take a look.
+    objectType: 0
+    messageAuthor: 1
+    sentTime: 12:50
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
+    messageKey: 
+  - messageContent: Thanks
+    objectType: 0
+    messageAuthor: 0
+    sentTime: 12:50
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
+    messageKey: 
+  dynamicMessages: []
+  storyTeller:
+  - itemID: Pavel_00
+    messageAuthor: 1
+    messageContent: 'Vince,
+
+
+      did you get those files sent over?
+
+
+      Pavel'
+    messageLatency: 1
+    messageTimer: 1.5
+    replies:
+    - replyID: Pavel_00_Reply_0
+      replyBrief: Yes! (Excited)
+      replyContent: Yes, got them and looking forward to listening!
+      replyFeedback: Ok then, amazing how you still get excited about the job...
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: Pavel_01
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    - replyID: Pavel_00_Reply_1
+      replyBrief: Yes (Neutral)
+      replyContent: Yup, got them.
+      replyFeedback: Ok. Don't make me wait too long, the sooner we get this song
+        out the better.
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: Pavel_01
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    - replyID: Pavel_00_Reply_2
+      replyBrief: Nope...
+      replyContent: No, nothing yet. Should I have received something?
+      replyFeedback: Claire must have sent you an email. Did you check??
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: Pavel_02
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    messageKey: 
+  - itemID: Pavel_01
+    messageAuthor: 1
+    messageContent: All right then, talk to you later!
+    messageLatency: 1.5
+    messageTimer: 0
+    replies: []
+    messageKey: 
+  - itemID: Pavel_02
+    messageAuthor: 1
+    messageContent: Oh?
+    messageLatency: 1
+    messageTimer: 1.5
+    replies:
+    - replyID: Pavel_02_Reply_0
+      replyBrief: Sorry...
+      replyContent: Damn... sorry about that. I'll check my mails.
+      replyFeedback: Get it together, Vince...
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: 
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    messageKey: 

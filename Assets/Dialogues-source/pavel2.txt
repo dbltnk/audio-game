@@ -1,0 +1,80 @@
+DIALOGUE SCRIPTING GUIDE
+
+1. BASIC STRUCTURE:
+   - Filename (e.g., pavel2.txt) identifies the dialogue
+   - Use [MESSAGE HISTORY] to define previous messages
+   - Use [LIVE MESSAGES] to define the interactive dialogue
+   - Use [ID] for each dialogue segment (e.g., [Pavel_00])
+   - {latency: X, timer: Y} sets timing (optional)
+   - > for other character's dialogue
+   - Numbers (1., 2., etc.) for Vince's response options
+   
+2. MESSAGE HISTORY:
+   Format: content: Message content | author: Vince or Pavel | time: HH:mm
+   
+3. LIVE MESSAGES (STORYTELLER):
+   Format: Number. Brief | Full response | Next dialogue ID
+   Example: 1. Yes! (Excited) | Yes, got them and looking forward to listening! | Pavel_01
+
+4. CHARACTER RESPONSES:
+   Use < before the response, can be on the next line after an option
+   Example: 
+   1. Option
+      < Response
+
+5. MULTI-LINE TEXT:
+   Simply continue on the next line, maintaining indentation
+
+6. MEDIA:
+   - Images: [image: filename.jpg] Description
+   - Audio: [audio: filename.mp3] Description
+
+7. TIMING (Optional):
+   {latency: X, timer: Y} where X and Y are seconds
+   Can be placed after segment ID or before a response
+
+8. BRANCHING:
+   Use the Next dialogue ID in options to create branches
+
+Remember: 
+- Indentation is important for readability but doesn't affect functionality
+- Be consistent with your ID naming (e.g., Character_NumberNumber)
+- You can have multiple options lead to the same next dialogue
+
+--- START WRITING BELOW THIS LINE ---
+
+[MESSAGE HISTORY]
+
+content: Hey Pavel, got a minute? | author: Vince | time: 12:45
+content: Sure, what's up? | author: Pavel | time: 12:47
+content: Just sent over those files you asked for. | author: Vince | time: 12:49
+content: Great, thanks! I'll take a look. | author: Pavel | time: 12:50
+content: Thanks | author: Vince | time: 12:50
+
+[LIVE MESSAGES]
+
+[Pavel_00] {latency: 1, timer: 1.5}
+> Vince,
+
+did you get those files sent over?
+
+Pavel
+
+1. Yes! (Excited) | Yes, got them and looking forward to listening! | Pavel_01
+   < Ok then, amazing how you still get excited about the job... 
+     don't make me wait too long for this
+   
+2. Yes (Neutral) | Yup, got them. | Pavel_01
+   < Ok. Don't make me wait too long, the sooner we get this song out the better.
+
+3. Nope... | No, nothing yet. Should I have received something? | Pavel_02
+   < Claire must have sent you an email. Did you check??
+
+[Pavel_01] {latency: 1.5, timer: 0}
+> All right then, talk to you later!
+
+[Pavel_02] {latency: 1, timer: 1.5}
+> Oh?
+
+1. Sorry... | Damn... sorry about that. I'll check my mails.
+   < Get it together, Vince...
