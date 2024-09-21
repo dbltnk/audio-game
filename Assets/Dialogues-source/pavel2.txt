@@ -1,5 +1,8 @@
 DIALOGUE SCRIPTING GUIDE
 
+0. UPDATING THE DIALOGUE IN UNITY
+   Every time you change this file run 'Tools' > Import Dialogue > Import/Update Dialogue in Unity.
+
 1. BASIC STRUCTURE:
    - Filename (e.g., pavel2.txt) identifies the dialogue
    - Use [MESSAGE HISTORY] to define previous messages
@@ -54,7 +57,7 @@ content: Sorry!!! | author: Vince | time: 12:54
 
 [LIVE MESSAGES]
 
-[Pavel_00] {latency: 1, timer: 1.5}
+[Pavel_00]
 > Vince,
 
 did you get those files sent over?
