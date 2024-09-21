@@ -175,9 +175,9 @@ public class DialogueImporter : EditorWindow
                     if (j < lines.Length)
                     {
                         string feedbackLine = lines[j].Trim();
-                        if (feedbackLine.StartsWith("<"))
+                        if (!feedbackLine.StartsWith("1.") && !feedbackLine.StartsWith("2.") && !feedbackLine.StartsWith("3.") && !feedbackLine.StartsWith("["))
                         {
-                            reply.replyFeedback = feedbackLine.TrimStart('<', ' ').Trim();
+                            reply.replyFeedback = feedbackLine.Trim();
 
                             Match feedbackTimingMatch = Regex.Match(reply.replyFeedback, @"\{latency:\s*(\d+(\.\d+)?),\s*timer:\s*(\d+(\.\d+)?)\}");
                             if (feedbackTimingMatch.Success)
