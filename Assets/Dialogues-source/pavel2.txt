@@ -47,9 +47,10 @@ Remember:
 
 content: Hey Pavel, got a minute? | author: Vince | time: 12:45
 content: Sure, what's up? | author: Pavel | time: 12:47
-content: Just sent over those files you asked for. | author: Vince | time: 12:49
-content: Great, thanks! I'll take a look. | author: Pavel | time: 12:50
-content: Thanks | author: Vince | time: 12:50
+content: When's your birthday again? | author: Vince | time: 12:49
+content: October 12th ... | author: Pavel | time: 12:52
+content: As you well know! | author: Pavel | time: 12:53
+content: Sorry!!! | author: Vince | time: 12:54
 
 [LIVE MESSAGES]
 
@@ -63,7 +64,7 @@ Pavel
 1. Yes! (Excited) | Yes, got them and looking forward to listening! | Pavel_01
    < Ok then, amazing how you still get excited about the job... 
      don't make me wait too long for this
-   
+       
 2. Yes (Neutral) | Yup, got them. | Pavel_01
    < Ok. Don't make me wait too long, the sooner we get this song out the better.
 
@@ -73,8 +74,44 @@ Pavel
 [Pavel_01] {latency: 1.5, timer: 0}
 > All right then, talk to you later!
 
-[Pavel_02] {latency: 1, timer: 1.5}
-> Oh?
+1. Wait! | Actually, before you go, can I ask something? | Pavel_06
 
-1. Sorry... | Damn... sorry about that. I'll check my mails.
+[Pavel_02] {latency: 3, timer: 1.5}
+> So, did you get it?
+
+1. Sorry... | Damn... sorry about that. I'll check my emails. | Pavel_03
    < Get it together, Vince...
+
+2. Deny fault | Well, that's obviously your fault! You never send stuff via Dropbox. | Pavel_03
+   < What? I am super good at dropboxing!
+
+[Pavel_03] {latency: 1, timer: 1.0}
+> Anyway, just make sure you check your email. We need to get this done ASAP.
+
+1. Will do. | All right, I'll check it right now. | END
+   < Thanks, Vince.
+
+2. What's the rush? | Why is this so urgent? | Pavel_04
+   < We have a deadline approaching. Didn't Claire tell you?
+
+[Pavel_04] {latency: 1, timer: 1.0}
+1. No, she didn't. | No, she didn't mention anything. | Pavel_05
+   < Typical. I'll forward you the details.
+
+2. I might have missed it. | Maybe I missed her email. | Pavel_05
+   < Please check your inbox more regularly.
+
+[Pavel_05] {latency: 1, timer: 1.0}
+> Just make sure you're on top of it.
+
+1. Will do. | Will do. | END
+   < Good.
+
+[Pavel_06] {latency: 1, timer: 1.0}
+> Yes?
+
+1. How's the project going? | How's the project going on your end? | END
+   < It's progressing. Thanks for asking.
+
+2. Never mind. | No worries, talk later. | END
+   < All right.

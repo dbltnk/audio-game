@@ -96,31 +96,42 @@ public class DialogueImporter : EditorWindow
             }
         }
 
-        // Parse Live Messages (StoryTeller)
-        string[] segments = Regex.Split(dialogueText.Substring(messageHistoryEnd), @"\[Pavel_\d+\]");
+        // Parse Live Messages(StoryTeller)
+        string liveMessagesText = dialogueText.Substring(messageHistoryEnd);
 
-        for (int i = 1; i < segments.Length; i++)
+        Regex segmentRegex = new Regex(@"\[(?<id>(Pavel|Claire)_\d+)\](?<content>[\s\S]*?)(?=\[(Pavel|Claire)_\d+\]|\z)", RegexOptions.Multiline);
+
+        var matches = segmentRegex.Matches(liveMessagesText);
+
+        foreach (Match match in matches)
         {
-            string segment = segments[i].Trim();
-            if (string.IsNullOrEmpty(segment)) continue;
+            string segmentID = match.Groups["id"].Value;
+            string segmentContent = match.Groups["content"].Value.Trim();
 
             MessagingChat.StoryTeller item = new MessagingChat.StoryTeller();
-            item.itemID = $"Pavel_{i - 1:D2}";
+            item.itemID = segmentID; // Use the actual ID from the dialogue file
 
-            Match timingMatch = Regex.Match(segment, @"\{latency:\s*(\d+(\.\d+)?),\s*timer:\s*(\d+(\.\d+)?)\}");
+            // Process timing
+            Match timingMatch = Regex.Match(segmentContent, @"\{latency:\s*(\d+(\.\d+)?),\s*timer:\s*(\d+(\.\d+)?)\}");
             if (timingMatch.Success)
             {
                 item.messageLatency = float.Parse(timingMatch.Groups[1].Value);
                 item.messageTimer = float.Parse(timingMatch.Groups[3].Value);
-                segment = segment.Replace(timingMatch.Value, "").Trim();
+                segmentContent = segmentContent.Replace(timingMatch.Value, "").Trim();
             }
 
-            string[] lines = segment.Split('\n');
+            // Process lines
+            string[] lines = segmentContent.Split('\n');
             System.Text.StringBuilder contentBuilder = new System.Text.StringBuilder();
             int j = 0;
             while (j < lines.Length && !lines[j].StartsWith("1."))
             {
                 string line = lines[j].Trim();
+                if (string.IsNullOrWhiteSpace(line))
+                {
+                    j++;
+                    continue;
+                }
                 if (line.StartsWith(">"))
                 {
                     contentBuilder.AppendLine(line.Substring(1).Trim());
@@ -139,33 +150,58 @@ public class DialogueImporter : EditorWindow
             item.messageAuthor = MessagingChat.MessageAuthor.Individual;
 
             item.replies = new List<MessagingChat.StoryTellerItem>();
-            for (; j < lines.Length; j++)
+            while (j < lines.Length)
             {
-                if (lines[j].StartsWith("1.") || lines[j].StartsWith("2.") || lines[j].StartsWith("3."))
+                string currentLine = lines[j].Trim();
+
+                if (string.IsNullOrWhiteSpace(currentLine))
+                {
+                    // Skip empty lines
+                    j++;
+                    continue;
+                }
+
+                if (currentLine.StartsWith("1.") || currentLine.StartsWith("2.") || currentLine.StartsWith("3."))
                 {
                     MessagingChat.StoryTellerItem reply = new MessagingChat.StoryTellerItem();
-                    string[] parts = lines[j].Split('|');
+                    string[] parts = currentLine.Split('|');
                     if (parts.Length > 0) reply.replyBrief = parts[0].Substring(3).Trim();
                     if (parts.Length > 1) reply.replyContent = parts[1].Trim();
                     if (parts.Length > 2) reply.callAfter = parts[2].Trim();
                     reply.replyID = $"{item.itemID}_Reply_{item.replies.Count}";
 
-                    if (j + 1 < lines.Length && lines[j + 1].TrimStart().StartsWith("<"))
+                    j++; // Move to the next line to check for reply feedback
+
+                    if (j < lines.Length)
                     {
-                        reply.replyFeedback = lines[j + 1].TrimStart('<', ' ').Trim();
-
-                        Match feedbackTimingMatch = Regex.Match(reply.replyFeedback, @"\{latency:\s*(\d+(\.\d+)?),\s*timer:\s*(\d+(\.\d+)?)\}");
-                        if (feedbackTimingMatch.Success)
+                        string feedbackLine = lines[j].Trim();
+                        if (feedbackLine.StartsWith("<"))
                         {
-                            reply.feedbackLatency = float.Parse(feedbackTimingMatch.Groups[1].Value);
-                            reply.feedbackTimer = float.Parse(feedbackTimingMatch.Groups[3].Value);
-                            reply.replyFeedback = reply.replyFeedback.Replace(feedbackTimingMatch.Value, "").Trim();
-                        }
+                            reply.replyFeedback = feedbackLine.TrimStart('<', ' ').Trim();
 
-                        j++;
+                            Match feedbackTimingMatch = Regex.Match(reply.replyFeedback, @"\{latency:\s*(\d+(\.\d+)?),\s*timer:\s*(\d+(\.\d+)?)\}");
+                            if (feedbackTimingMatch.Success)
+                            {
+                                reply.feedbackLatency = float.Parse(feedbackTimingMatch.Groups[1].Value);
+                                reply.feedbackTimer = float.Parse(feedbackTimingMatch.Groups[3].Value);
+                                reply.replyFeedback = reply.replyFeedback.Replace(feedbackTimingMatch.Value, "").Trim();
+                            }
+
+                            j++; // Move to next line after processing feedback
+                        }
                     }
 
                     item.replies.Add(reply);
+                }
+                else if (currentLine.StartsWith("["))
+                {
+                    // Reached a new dialogue segment, break out of the loop
+                    break;
+                }
+                else
+                {
+                    // Skip unrecognized lines
+                    j++;
                 }
             }
 

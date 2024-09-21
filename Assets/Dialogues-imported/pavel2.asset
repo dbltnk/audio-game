@@ -30,24 +30,31 @@ MonoBehaviour:
     audioMessage: {fileID: 0}
     imageMessage: {fileID: 0}
     messageKey: 
-  - messageContent: Just sent over those files you asked for.
+  - messageContent: When's your birthday again?
     objectType: 0
     messageAuthor: 0
     sentTime: 12:49
     audioMessage: {fileID: 0}
     imageMessage: {fileID: 0}
     messageKey: 
-  - messageContent: Great, thanks! I'll take a look.
+  - messageContent: October 12th ...
     objectType: 0
     messageAuthor: 1
-    sentTime: 12:50
+    sentTime: 12:52
     audioMessage: {fileID: 0}
     imageMessage: {fileID: 0}
     messageKey: 
-  - messageContent: Thanks
+  - messageContent: As you well know!
+    objectType: 0
+    messageAuthor: 1
+    sentTime: 12:53
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
+    messageKey: 
+  - messageContent: Sorry!!!
     objectType: 0
     messageAuthor: 0
-    sentTime: 12:50
+    sentTime: 12:54
     audioMessage: {fileID: 0}
     imageMessage: {fileID: 0}
     messageKey: 
@@ -57,9 +64,7 @@ MonoBehaviour:
     messageAuthor: 1
     messageContent: 'Vince,
 
-
       did you get those files sent over?
-
 
       Pavel'
     messageLatency: 1
@@ -102,21 +107,140 @@ MonoBehaviour:
     messageContent: All right then, talk to you later!
     messageLatency: 1.5
     messageTimer: 0
-    replies: []
+    replies:
+    - replyID: Pavel_01_Reply_0
+      replyBrief: Wait!
+      replyContent: Actually, before you go, can I ask something?
+      replyFeedback: Reply feedback
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: Pavel_06
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
     messageKey: 
   - itemID: Pavel_02
     messageAuthor: 1
-    messageContent: Oh?
-    messageLatency: 1
+    messageContent: So, did you get it?
+    messageLatency: 3
     messageTimer: 1.5
     replies:
     - replyID: Pavel_02_Reply_0
       replyBrief: Sorry...
-      replyContent: Damn... sorry about that. I'll check my mails.
+      replyContent: Damn... sorry about that. I'll check my emails.
       replyFeedback: Get it together, Vince...
       feedbackLatency: 1
       feedbackTimer: 1.5
-      callAfter: 
+      callAfter: Pavel_03
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    - replyID: Pavel_02_Reply_1
+      replyBrief: Deny fault
+      replyContent: Well, that's obviously your fault! You never send stuff via Dropbox.
+      replyFeedback: What? I am super good at dropboxing!
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: Pavel_03
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    messageKey: 
+  - itemID: Pavel_03
+    messageAuthor: 1
+    messageContent: Anyway, just make sure you check your email. We need to get this
+      done ASAP.
+    messageLatency: 1
+    messageTimer: 1
+    replies:
+    - replyID: Pavel_03_Reply_0
+      replyBrief: Will do.
+      replyContent: All right, I'll check it right now.
+      replyFeedback: Thanks, Vince.
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: END
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    - replyID: Pavel_03_Reply_1
+      replyBrief: What's the rush?
+      replyContent: Why is this so urgent?
+      replyFeedback: We have a deadline approaching. Didn't Claire tell you?
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: Pavel_04
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    messageKey: 
+  - itemID: Pavel_04
+    messageAuthor: 1
+    messageContent: 
+    messageLatency: 1
+    messageTimer: 1
+    replies:
+    - replyID: Pavel_04_Reply_0
+      replyBrief: No, she didn't.
+      replyContent: No, she didn't mention anything.
+      replyFeedback: Typical. I'll forward you the details.
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: Pavel_05
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    - replyID: Pavel_04_Reply_1
+      replyBrief: I might have missed it.
+      replyContent: Maybe I missed her email.
+      replyFeedback: Please check your inbox more regularly.
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: Pavel_05
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    messageKey: 
+  - itemID: Pavel_05
+    messageAuthor: 1
+    messageContent: Just make sure you're on top of it.
+    messageLatency: 1
+    messageTimer: 1
+    replies:
+    - replyID: Pavel_05_Reply_0
+      replyBrief: Will do.
+      replyContent: Will do.
+      replyFeedback: Good.
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: END
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    messageKey: 
+  - itemID: Pavel_06
+    messageAuthor: 1
+    messageContent: Yes?
+    messageLatency: 1
+    messageTimer: 1
+    replies:
+    - replyID: Pavel_06_Reply_0
+      replyBrief: How's the project going?
+      replyContent: How's the project going on your end?
+      replyFeedback: It's progressing. Thanks for asking.
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: END
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    - replyID: Pavel_06_Reply_1
+      replyBrief: Never mind.
+      replyContent: No worries, talk later.
+      replyFeedback: All right.
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: END
       briefKey: 
       contentKey: 
       feedbackKey: 
