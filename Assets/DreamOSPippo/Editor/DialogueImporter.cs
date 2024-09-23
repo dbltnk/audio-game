@@ -4,6 +4,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using Michsky.DreamOS;
+using System.Text.RegularExpressions;
 
 public class DialogueImporter : EditorWindow
 {
@@ -66,9 +67,7 @@ public class DialogueImporter : EditorWindow
 
     void ImportFromCSV(string filePath, MessagingChat chatConversation)
     {
-        List<string[]> csvData = File.ReadAllLines(filePath)
-            .Select(line => line.Split('|'))
-            .ToList();
+        List<string[]> csvData = ParseCSV(filePath);
 
         // Skip header row
         for (int i = 1; i < csvData.Count; i++)
@@ -89,6 +88,41 @@ public class DialogueImporter : EditorWindow
                     break;
             }
         }
+    }
+
+    List<string[]> ParseCSV(string filePath)
+    {
+        List<string[]> parsedData = new List<string[]>();
+        string[] lines = File.ReadAllLines(filePath);
+
+        foreach (string line in lines)
+        {
+            List<string> fields = new List<string>();
+            bool inQuotes = false;
+            string currentField = "";
+
+            foreach (char c in line)
+            {
+                if (c == '"')
+                {
+                    inQuotes = !inQuotes;
+                }
+                else if (c == ',' && !inQuotes)
+                {
+                    fields.Add(currentField.Trim());
+                    currentField = "";
+                }
+                else
+                {
+                    currentField += c;
+                }
+            }
+
+            fields.Add(currentField.Trim());
+            parsedData.Add(fields.ToArray());
+        }
+
+        return parsedData;
     }
 
     void ProcessHistoryMessage(MessagingChat chatConversation, string[] row)
