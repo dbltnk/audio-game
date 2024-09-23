@@ -37,7 +37,7 @@ MonoBehaviour:
     audioMessage: {fileID: 0}
     imageMessage: {fileID: 0}
     messageKey: 
-  - messageContent: October 12th ...
+  - messageContent: December 11th ...
     objectType: 0
     messageAuthor: 1
     sentTime: 12:52
@@ -69,11 +69,7 @@ MonoBehaviour:
   storyTeller:
   - itemID: Pavel_00
     messageAuthor: 1
-    messageContent: 'Vince,
-
-      did you get those files sent over?
-
-      Pavel'
+    messageContent: Vince, did you get those files sent over????
     messageLatency: 1
     messageTimer: 1.5
     replies:
