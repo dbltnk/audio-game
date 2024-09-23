@@ -12,7 +12,7 @@ REPLY,Pavel_00,,,,,,Pavel_00_Reply_0,Yes! (Excited),"Yes, got them and looking f
 REPLY,Pavel_00,,,,,,Pavel_00_Reply_1,Yes (Neutral),"Yup, got them.","Ok. Don't make me wait too long, the sooner we get this song out the better.",Pavel_01
 REPLY,Pavel_00,,,,,,Pavel_00_Reply_2,Nope...,"No, nothing yet. Should I have received something?",Claire must have sent you an email. Did you check??,Pavel_02
 SEGMENT,Pavel_01,"All right then, talk to you later!",Pavel,,1.5,0,,,,,
-REPLY,Pavel_01,,,,,,Pavel_01_Reply_0,Wait!,"Actually, before you go, can I ask something?","Yes, what is it?",Pavel_06
+REPLY,Pavel_01,,,,,,Pavel_01_Reply_0,Wait!,"Actually, before you go, can I ask something?",,Pavel_06
 SEGMENT,Pavel_02,"So, did you get it?",Pavel,,3,1.5,,,,,
 REPLY,Pavel_02,,,,,,Pavel_02_Reply_0,Sorry...,Damn... sorry about that. I'll check my emails.,"Get it together, Vince...",Pavel_03
 REPLY,Pavel_02,,,,,,Pavel_02_Reply_1,Deny fault,"Well, that's obviously your fault! You never send stuff via Dropbox.",What? I am super good at dropboxing!,Pavel_03
@@ -26,4 +26,4 @@ SEGMENT,Pavel_05,Just make sure you're on top of it.,Pavel,,1,1,,,,,
 REPLY,Pavel_05,,,,,,Pavel_05_Reply_0,Will do.,Will do.,Good.,END
 SEGMENT,Pavel_06,Ask.,Pavel,,1,1,,,,,
 REPLY,Pavel_06,,,,,,Pavel_06_Reply_0,How's the project going?,How's the project going on your end?,It's progressing. Thanks for asking.,END
-REPLY,Pavel_06,,,,,,Pavel_06_Reply_1,Never mind.,"No worries, talk later.",All right.,END
+REPLY,Pavel_06,,,,,,Pavel_06_Reply_1,Never mind.,"No worries, talk later.",,END

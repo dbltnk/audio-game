@@ -121,7 +121,7 @@ MonoBehaviour:
     - replyID: Pavel_01_Reply_0
       replyBrief: Wait!
       replyContent: Actually, before you go, can I ask something?
-      replyFeedback: Yes, what is it?
+      replyFeedback: 
       feedbackLatency: 1
       feedbackTimer: 1.5
       callAfter: Pavel_06
@@ -247,7 +247,7 @@ MonoBehaviour:
     - replyID: Pavel_06_Reply_1
       replyBrief: Never mind.
       replyContent: No worries, talk later.
-      replyFeedback: All right.
+      replyFeedback: 
       feedbackLatency: 1
       feedbackTimer: 1.5
       callAfter: END

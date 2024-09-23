@@ -27,10 +27,12 @@ namespace Michsky.DreamOS
                 msgManager.stItemIndex = itemIndex;
                 msgManager.isStoryTellerOpen = false;
 
-                if (!string.IsNullOrEmpty(msgManager.chatList[layoutIndex].chatAsset.storyTeller[msgManager.storyTellerIndex].replies[itemIndex].replyFeedback))
-                {
-                    handler.StartCoroutine(handler.HandleStoryTellerLatency(msgManager.chatList[layoutIndex].chatAsset.storyTeller[msgManager.storyTellerIndex].replies[itemIndex].feedbackLatency, layoutIndex, itemIndex));
-                }
+                // We'll allow empty for now - Alex
+                //if (!string.IsNullOrEmpty(msgManager.chatList[layoutIndex].chatAsset.storyTeller[msgManager.storyTellerIndex].replies[itemIndex].replyFeedback))
+                //{
+                handler.StartCoroutine(handler.HandleStoryTellerLatency(msgManager.chatList[layoutIndex].chatAsset.storyTeller[msgManager.storyTellerIndex].replies[itemIndex].feedbackLatency, layoutIndex, itemIndex));
+                //}
+                //else { Debug.LogWarning("EMPTY! " + msgManager.chatList[layoutIndex].chatAsset.storyTeller[msgManager.storyTellerIndex].replies[itemIndex].replyFeedback); }
 
                 for (int i = 0; i < msgManager.storytellerReplyEvents.Count; ++i)
                 {
