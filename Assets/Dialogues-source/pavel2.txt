@@ -53,6 +53,7 @@ content: When's your birthday again? | author: Vince | time: 12:49
 content: October 12th ... | author: Pavel | time: 12:52
 content: As you well know! | author: Pavel | time: 12:53
 content: Sorry!!! | author: Vince | time: 12:54
+content: What time are we leaving | author: Vince | time: September 12, 2021 5:52pm
 
 [LIVE MESSAGES]
 

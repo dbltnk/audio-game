@@ -1,0 +1,59 @@
+DIALOGUE SCRIPTING GUIDE
+
+0. UPDATING THE DIALOGUE IN UNITY
+   Every time you change this file run 'Tools' > Import Dialogue > Import/Update Dialogue in Unity.
+
+1. BASIC STRUCTURE:
+   - Filename (e.g., Claire2.txt) identifies the dialogue
+   - Use [MESSAGE HISTORY] to define previous messages
+   - Use [LIVE MESSAGES] to define the interactive dialogue
+   - Use [ID] for each dialogue segment (e.g., [Pavel_00])
+   - {latency: X, timer: Y} sets timing (optional)
+   - Numbers (1., 2., etc.) for Vince's response options
+   
+2. MESSAGE HISTORY:
+   Format: content: Message content | author: Vince or Pavel | time: HH:mm
+   
+3. LIVE MESSAGES (STORYTELLER):
+   Format: Number. Brief | Full response | Next dialogue ID
+   Example: 1. Yes! (Excited) | Yes, got them and looking forward to listening! | Pavel_01
+
+4. CHARACTER RESPONSES:
+   Place the response on the next line after an option, maintaining indentation
+   Example: 
+   1. Option
+      Response
+
+5. MULTI-LINE TEXT:
+   Simply continue on the next line, maintaining indentation
+
+6. MEDIA:
+   - Images: [image: filename.jpg] Description
+   - Audio: [audio: filename.mp3] Description
+
+7. TIMING (Optional):
+   {latency: X, timer: Y} where X and Y are seconds
+   Can be placed after segment ID or before a response
+
+8. BRANCHING:
+   Use the Next dialogue ID in options to create branches
+
+Remember: 
+- Indentation is important for readability but doesn't affect functionality
+- Be consistent with your ID naming (e.g., Character_NumberNumber)
+- You can have multiple options lead to the same next dialogue
+
+--- START WRITING BELOW THIS LINE ---
+
+[MESSAGE HISTORY]
+
+content: Hey Claire, got a minute? | author: Vince | time: 12:45
+content: Sure, what's up? | author: Claire | time: 12:47
+content: When's your birthday again? | author: Vince | time: 12:49
+content: October 12th ... | author: Claire | time: 12:52
+content: As you well know! | author: Claire | time: 12:53
+content: Sorry!!! | author: Vince | time: 12:54
+content: What time are we leaving | author: Vince | time: September 12, 2021 5:52pm
+
+[LIVE MESSAGES]
+

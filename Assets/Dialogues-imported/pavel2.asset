@@ -58,6 +58,13 @@ MonoBehaviour:
     audioMessage: {fileID: 0}
     imageMessage: {fileID: 0}
     messageKey: 
+  - messageContent: What time are we leaving
+    objectType: 0
+    messageAuthor: 0
+    sentTime: September 12, 2021 5:52pm
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
+    messageKey: 
   dynamicMessages: []
   storyTeller:
   - itemID: Pavel_00
