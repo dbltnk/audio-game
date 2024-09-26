@@ -53,16 +53,16 @@ public class DialogueImporter : EditorWindow
         if (isNewAsset)
         {
             AssetDatabase.CreateAsset(chatConversation, assetPath);
-            Debug.Log($"New dialogue asset created at {assetPath}");
         }
         else
         {
             EditorUtility.SetDirty(chatConversation);
-            Debug.Log($"Existing dialogue asset updated at {assetPath}");
         }
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+
+        Debug.Log($"Dialogue asset {(isNewAsset ? "created" : "updated")} at {assetPath}");
     }
 
     void ImportFromCSV(string filePath, MessagingChat chatConversation)
@@ -74,22 +74,160 @@ public class DialogueImporter : EditorWindow
         {
             string[] row = csvData[i];
             string type = row[0];
+            string messageType = row[12]; // New column for message type
 
             switch (type)
             {
                 case "HISTORY":
-                    ProcessHistoryMessage(chatConversation, row);
+                    ProcessHistoryMessage(chatConversation, row, messageType);
                     break;
                 case "SEGMENT":
-                    ProcessSegment(chatConversation, row);
+                    ProcessSegment(chatConversation, row, messageType);
                     break;
                 case "REPLY":
-                    ProcessReply(chatConversation, row);
+                    ProcessReply(chatConversation, row, messageType);
                     break;
             }
         }
     }
 
+    void ProcessHistoryMessage(MessagingChat chatConversation, string[] row, string messageType)
+    {
+        MessagingChat.ChatMessage message = CreateChatMessage(row, messageType);
+        chatConversation.messageList.Add(message);
+    }
+
+    void ProcessSegment(MessagingChat chatConversation, string[] row, string messageType)
+    {
+        MessagingChat.StoryTeller segment = new MessagingChat.StoryTeller
+        {
+            itemID = row[1],
+            messageContent = row[2],
+            messageAuthor = row[3] == "Vince" ? MessagingChat.MessageAuthor.Self : MessagingChat.MessageAuthor.Individual,
+            messageLatency = float.TryParse(row[5], out float latency) ? latency : 0f,
+            messageTimer = float.TryParse(row[6], out float timer) ? timer : 0f,
+            replies = new List<MessagingChat.StoryTellerItem>()
+        };
+
+        // Handle media for segments
+        if (messageType == "IMAGE" || messageType == "AUDIO")
+        {
+            string assetPath = row[13]; // New column for asset path
+            if (messageType == "IMAGE")
+            {
+                segment.messageContent = $"[IMAGE]{assetPath}";
+            }
+            else if (messageType == "AUDIO")
+            {
+                segment.messageContent = $"[AUDIO]{assetPath}";
+            }
+        }
+
+        chatConversation.storyTeller.Add(segment);
+    }
+
+    void ProcessReply(MessagingChat chatConversation, string[] row, string messageType)
+    {
+        MessagingChat.StoryTeller segment = chatConversation.storyTeller.Find(s => s.itemID == row[1]);
+        if (segment != null)
+        {
+            MessagingChat.StoryTellerItem reply = new MessagingChat.StoryTellerItem
+            {
+                replyID = row[7],
+                replyBrief = row[8],
+                replyContent = row[9],
+                replyFeedback = row[10],
+                callAfter = row[11]
+            };
+
+            // Handle media for replies
+            if (messageType == "IMAGE" || messageType == "AUDIO")
+            {
+                string assetPath = row[13]; // New column for asset path
+                if (messageType == "IMAGE")
+                {
+                    reply.replyContent = $"[IMAGE]{assetPath}";
+                }
+                else if (messageType == "AUDIO")
+                {
+                    reply.replyContent = $"[AUDIO]{assetPath}";
+                }
+            }
+
+            segment.replies.Add(reply);
+        }
+    }
+
+    MessagingChat.ChatMessage CreateChatMessage(string[] row, string messageType)
+    {
+        MessagingChat.ChatMessage message = new MessagingChat.ChatMessage
+        {
+            messageContent = row[2],
+            objectType = GetObjectTypeFromMessageType(messageType),
+            messageAuthor = row[3] == "Vince" ? MessagingChat.MessageAuthor.Self : MessagingChat.MessageAuthor.Individual,
+            sentTime = row[4]
+        };
+
+        if (messageType == "IMAGE" || messageType == "AUDIO")
+        {
+            string assetPath = row[13]; // New column for asset path
+            if (messageType == "IMAGE")
+            {
+                message.imageMessage = LoadSpriteFromPath(assetPath);
+            }
+            else if (messageType == "AUDIO")
+            {
+                message.audioMessage = LoadAudioClipFromPath(assetPath);
+            }
+        }
+
+        return message;
+    }
+
+    MessagingChat.ObjectType GetObjectTypeFromMessageType(string messageType)
+    {
+        switch (messageType)
+        {
+            case "TEXT":
+                return MessagingChat.ObjectType.Message;
+            case "IMAGE":
+                return MessagingChat.ObjectType.ImageMessage;
+            case "AUDIO":
+                return MessagingChat.ObjectType.AudioMessage;
+            case "DATE":
+                return MessagingChat.ObjectType.Date;
+            default:
+                return MessagingChat.ObjectType.Message;
+        }
+    }
+
+    Sprite LoadSpriteFromPath(string path)
+    {
+        Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+        if (sprite == null)
+        {
+            Debug.LogError($"Failed to load sprite at path: {path}");
+        }
+        else
+        {
+            Debug.Log($"Successfully loaded sprite at path: {path}");
+        }
+        return sprite;
+    }
+
+    AudioClip LoadAudioClipFromPath(string path)
+    {
+        AudioClip clip = AssetDatabase.LoadAssetAtPath<AudioClip>(path);
+        if (clip == null)
+        {
+            Debug.LogError($"Failed to load audio clip at path: {path}");
+        }
+        else
+        {
+            Debug.Log($"Successfully loaded audio clip at path: {path}");
+        }
+        return clip;
+    }
     List<string[]> ParseCSV(string filePath)
     {
         List<string[]> parsedData = new List<string[]>();
@@ -123,48 +261,5 @@ public class DialogueImporter : EditorWindow
         }
 
         return parsedData;
-    }
-
-    void ProcessHistoryMessage(MessagingChat chatConversation, string[] row)
-    {
-        MessagingChat.ChatMessage message = new MessagingChat.ChatMessage
-        {
-            messageContent = row[2],
-            objectType = MessagingChat.ObjectType.Message,
-            messageAuthor = row[3] == "Vince" ? MessagingChat.MessageAuthor.Self : MessagingChat.MessageAuthor.Individual,
-            sentTime = row[4]
-        };
-        chatConversation.messageList.Add(message);
-    }
-
-    void ProcessSegment(MessagingChat chatConversation, string[] row)
-    {
-        MessagingChat.StoryTeller segment = new MessagingChat.StoryTeller
-        {
-            itemID = row[1],
-            messageContent = row[2],
-            messageAuthor = MessagingChat.MessageAuthor.Individual,
-            messageLatency = float.TryParse(row[5], out float latency) ? latency : 0f,
-            messageTimer = float.TryParse(row[6], out float timer) ? timer : 0f,
-            replies = new List<MessagingChat.StoryTellerItem>()
-        };
-        chatConversation.storyTeller.Add(segment);
-    }
-
-    void ProcessReply(MessagingChat chatConversation, string[] row)
-    {
-        MessagingChat.StoryTeller segment = chatConversation.storyTeller.Find(s => s.itemID == row[1]);
-        if (segment != null)
-        {
-            MessagingChat.StoryTellerItem reply = new MessagingChat.StoryTellerItem
-            {
-                replyID = row[7],
-                replyBrief = row[8],
-                replyContent = row[9],
-                replyFeedback = row[10],
-                callAfter = row[11]
-            };
-            segment.replies.Add(reply);
-        }
     }
 }

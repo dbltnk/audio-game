@@ -72,6 +72,41 @@ MonoBehaviour:
     audioMessage: {fileID: 0}
     imageMessage: {fileID: 0}
     messageKey: 
+  - messageContent: Check out this cute doggo!
+    objectType: 0
+    messageAuthor: 0
+    sentTime: 14:37:00 PM
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
+    messageKey: 
+  - messageContent: 
+    objectType: 3
+    messageAuthor: 0
+    sentTime: 14:37:00 PM
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 21300000, guid: faf6013a61782d143a8348d54058e55e, type: 3}
+    messageKey: 
+  - messageContent: What a cutie!
+    objectType: 0
+    messageAuthor: 1
+    sentTime: 14:38:00 PM
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
+    messageKey: 
+  - messageContent: Also look, I can sends annoying voice mails =D
+    objectType: 0
+    messageAuthor: 0
+    sentTime: 14:40:00 PM
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
+    messageKey: 
+  - messageContent: 
+    objectType: 2
+    messageAuthor: 0
+    sentTime: 14:40:00 PM
+    audioMessage: {fileID: 8300000, guid: 6d841acb9a3bdab92a529aace6b2e421, type: 3}
+    imageMessage: {fileID: 0}
+    messageKey: 
   dynamicMessages: []
   storyTeller:
   - itemID: Pavel_00
@@ -125,6 +160,61 @@ MonoBehaviour:
       feedbackLatency: 1
       feedbackTimer: 1.5
       callAfter: Pavel_06
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    - replyID: Pavel_01_Reply_1
+      replyBrief: Send image
+      replyContent: '[IMAGE]Assets/DreamOSPippo/Textures/Placeholders/Photos/Good
+        Boy.png'
+      replyFeedback: 
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: Pavel_01_Image
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    - replyID: Pavel_01_Reply_2
+      replyBrief: Send audio
+      replyContent: '[AUDIO]Assets/DreamOSPippo/Audio/Placeholder/tt.mp3'
+      replyFeedback: 
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: Pavel_01_Audio
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    messageKey: 
+  - itemID: Pavel_01_Image
+    messageAuthor: 1
+    messageContent: Wow,  that looks great!
+    messageLatency: 1
+    messageTimer: 1
+    replies:
+    - replyID: Pavel_01_Image_Reply_0
+      replyBrief: Thanks!
+      replyContent: Thanks! I've been working hard on it.
+      replyFeedback: 
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: END
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+    messageKey: 
+  - itemID: Pavel_01_Audio
+    messageAuthor: 1
+    messageContent: Nice beat! Is this for the new track?
+    messageLatency: 1
+    messageTimer: 1
+    replies:
+    - replyID: Pavel_01_Audio_Reply_0
+      replyBrief: Yes
+      replyContent: Yeah
+      replyFeedback: it's for the upcoming album.
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: END
       briefKey: 
       contentKey: 
       feedbackKey: 
