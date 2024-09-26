@@ -102,18 +102,10 @@ namespace Michsky.DreamOS
             ChatLayoutPreset layout = manager.chatViewer.Find(manager.chatList[layoutIndex].chatTitle).GetComponent<ChatLayoutPreset>();
             MessagingChat.StoryTellerItem reply = manager.chatList[layoutIndex].chatAsset.storyTeller[manager.storyTellerIndex].replies[manager.stItemIndex];
 
-            // Always send the feedback text message first
-            manager.CreateIndividualMessage(layout, reply.replyFeedback, reply.feedbackKey);
-
-            // Then, if there's media in the feedback, send it as a separate message
-            switch (reply.objectType)
+            // Only send the feedback text message
+            if (!string.IsNullOrEmpty(reply.replyFeedback))
             {
-                case MessagingChat.ObjectType.AudioMessage:
-                    manager.CreateIndividualAudioMessage(layout, reply.audioMessage, manager.GetTimeData());
-                    break;
-                case MessagingChat.ObjectType.ImageMessage:
-                    manager.CreateIndividualImageMessage(layout, reply.imageMessage, "Image Feedback", "", manager.GetTimeData());
-                    break;
+                manager.CreateIndividualMessage(layout, reply.replyFeedback, reply.feedbackKey);
             }
 
             if (!string.IsNullOrEmpty(reply.callAfter))
