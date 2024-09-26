@@ -125,6 +125,9 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     - replyID: Pavel_00_Reply_1
       replyBrief: Yes (Neutral)
       replyContent: Yup, got them.
@@ -136,6 +139,9 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     - replyID: Pavel_00_Reply_2
       replyBrief: Nope...
       replyContent: No, nothing yet. Should I have received something?
@@ -146,7 +152,13 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     messageKey: 
+    objectType: 0
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
   - itemID: Pavel_01
     messageAuthor: 1
     messageContent: All right then, talk to you later!
@@ -163,10 +175,12 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     - replyID: Pavel_01_Reply_1
       replyBrief: Send image
-      replyContent: '[IMAGE]Assets/DreamOSPippo/Textures/Placeholders/Photos/Good
-        Boy.png'
+      replyContent: Check out this progress pic!
       replyFeedback: 
       feedbackLatency: 1
       feedbackTimer: 1.5
@@ -174,9 +188,12 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 3
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 21300000, guid: faf6013a61782d143a8348d54058e55e, type: 3}
     - replyID: Pavel_01_Reply_2
       replyBrief: Send audio
-      replyContent: '[AUDIO]Assets/DreamOSPippo/Audio/Placeholder/tt.mp3'
+      replyContent: Listen to this sample
       replyFeedback: 
       feedbackLatency: 1
       feedbackTimer: 1.5
@@ -184,7 +201,13 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 2
+      audioMessage: {fileID: 8300000, guid: 6d841acb9a3bdab92a529aace6b2e421, type: 3}
+      imageMessage: {fileID: 0}
     messageKey: 
+    objectType: 0
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
   - itemID: Pavel_01_Image
     messageAuthor: 1
     messageContent: Wow,  that looks great!
@@ -201,7 +224,13 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     messageKey: 
+    objectType: 0
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
   - itemID: Pavel_01_Audio
     messageAuthor: 1
     messageContent: Nice beat! Is this for the new track?
@@ -218,7 +247,13 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     messageKey: 
+    objectType: 0
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
   - itemID: Pavel_02
     messageAuthor: 1
     messageContent: So, did you get it?
@@ -235,6 +270,9 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     - replyID: Pavel_02_Reply_1
       replyBrief: Deny fault
       replyContent: Well, that's obviously your fault! You never send stuff via Dropbox.
@@ -245,7 +283,13 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     messageKey: 
+    objectType: 0
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
   - itemID: Pavel_03
     messageAuthor: 1
     messageContent: Anyway, just make sure you check your email. We need to get this
@@ -263,6 +307,9 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     - replyID: Pavel_03_Reply_1
       replyBrief: What's the rush?
       replyContent: Why is this so urgent?
@@ -273,7 +320,13 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     messageKey: 
+    objectType: 0
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
   - itemID: Pavel_04
     messageAuthor: 1
     messageContent: 
@@ -290,6 +343,9 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     - replyID: Pavel_04_Reply_1
       replyBrief: I might have missed it.
       replyContent: Maybe I missed her email.
@@ -300,7 +356,13 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     messageKey: 
+    objectType: 0
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
   - itemID: Pavel_05
     messageAuthor: 1
     messageContent: Just make sure you're on top of it.
@@ -317,7 +379,13 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     messageKey: 
+    objectType: 0
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
   - itemID: Pavel_06
     messageAuthor: 1
     messageContent: Ask.
@@ -334,6 +402,9 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     - replyID: Pavel_06_Reply_1
       replyBrief: Never mind.
       replyContent: No worries, talk later.
@@ -344,4 +415,10 @@ MonoBehaviour:
       briefKey: 
       contentKey: 
       feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
     messageKey: 
+    objectType: 0
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}

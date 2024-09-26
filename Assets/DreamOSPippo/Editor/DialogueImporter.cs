@@ -68,13 +68,14 @@ public class DialogueImporter : EditorWindow
     void ImportFromCSV(string filePath, MessagingChat chatConversation)
     {
         List<string[]> csvData = ParseCSV(filePath);
+        MessagingChat.StoryTeller currentSegment = null;
 
         // Skip header row
         for (int i = 1; i < csvData.Count; i++)
         {
             string[] row = csvData[i];
             string type = row[0];
-            string messageType = row[12]; // New column for message type
+            string messageType = row[12];
 
             switch (type)
             {
@@ -82,10 +83,10 @@ public class DialogueImporter : EditorWindow
                     ProcessHistoryMessage(chatConversation, row, messageType);
                     break;
                 case "SEGMENT":
-                    ProcessSegment(chatConversation, row, messageType);
+                    ProcessSegment(chatConversation, row, messageType, ref currentSegment);
                     break;
                 case "REPLY":
-                    ProcessReply(chatConversation, row, messageType);
+                    ProcessReply(currentSegment, row, messageType);
                     break;
             }
         }
@@ -97,39 +98,38 @@ public class DialogueImporter : EditorWindow
         chatConversation.messageList.Add(message);
     }
 
-    void ProcessSegment(MessagingChat chatConversation, string[] row, string messageType)
+    void ProcessSegment(MessagingChat chatConversation, string[] row, string messageType, ref MessagingChat.StoryTeller currentSegment)
     {
-        MessagingChat.StoryTeller segment = new MessagingChat.StoryTeller
+        currentSegment = new MessagingChat.StoryTeller
         {
             itemID = row[1],
             messageContent = row[2],
             messageAuthor = row[3] == "Vince" ? MessagingChat.MessageAuthor.Self : MessagingChat.MessageAuthor.Individual,
             messageLatency = float.TryParse(row[5], out float latency) ? latency : 0f,
             messageTimer = float.TryParse(row[6], out float timer) ? timer : 0f,
-            replies = new List<MessagingChat.StoryTellerItem>()
+            replies = new List<MessagingChat.StoryTellerItem>(),
+            objectType = GetObjectTypeFromMessageType(messageType)
         };
 
-        // Handle media for segments
         if (messageType == "IMAGE" || messageType == "AUDIO")
         {
-            string assetPath = row[13]; // New column for asset path
+            string assetPath = row[13];
             if (messageType == "IMAGE")
             {
-                segment.messageContent = $"[IMAGE]{assetPath}";
+                currentSegment.imageMessage = LoadSpriteFromPath(assetPath);
             }
             else if (messageType == "AUDIO")
             {
-                segment.messageContent = $"[AUDIO]{assetPath}";
+                currentSegment.audioMessage = LoadAudioClipFromPath(assetPath);
             }
         }
 
-        chatConversation.storyTeller.Add(segment);
+        chatConversation.storyTeller.Add(currentSegment);
     }
 
-    void ProcessReply(MessagingChat chatConversation, string[] row, string messageType)
+    void ProcessReply(MessagingChat.StoryTeller currentSegment, string[] row, string messageType)
     {
-        MessagingChat.StoryTeller segment = chatConversation.storyTeller.Find(s => s.itemID == row[1]);
-        if (segment != null)
+        if (currentSegment != null)
         {
             MessagingChat.StoryTellerItem reply = new MessagingChat.StoryTellerItem
             {
@@ -137,24 +137,24 @@ public class DialogueImporter : EditorWindow
                 replyBrief = row[8],
                 replyContent = row[9],
                 replyFeedback = row[10],
-                callAfter = row[11]
+                callAfter = row[11],
+                objectType = GetObjectTypeFromMessageType(messageType)
             };
 
-            // Handle media for replies
             if (messageType == "IMAGE" || messageType == "AUDIO")
             {
-                string assetPath = row[13]; // New column for asset path
+                string assetPath = row[13];
                 if (messageType == "IMAGE")
                 {
-                    reply.replyContent = $"[IMAGE]{assetPath}";
+                    reply.imageMessage = LoadSpriteFromPath(assetPath);
                 }
                 else if (messageType == "AUDIO")
                 {
-                    reply.replyContent = $"[AUDIO]{assetPath}";
+                    reply.audioMessage = LoadAudioClipFromPath(assetPath);
                 }
             }
 
-            segment.replies.Add(reply);
+            currentSegment.replies.Add(reply);
         }
     }
 
@@ -170,7 +170,7 @@ public class DialogueImporter : EditorWindow
 
         if (messageType == "IMAGE" || messageType == "AUDIO")
         {
-            string assetPath = row[13]; // New column for asset path
+            string assetPath = row[13];
             if (messageType == "IMAGE")
             {
                 message.imageMessage = LoadSpriteFromPath(assetPath);
@@ -228,6 +228,7 @@ public class DialogueImporter : EditorWindow
         }
         return clip;
     }
+
     List<string[]> ParseCSV(string filePath)
     {
         List<string[]> parsedData = new List<string[]>();

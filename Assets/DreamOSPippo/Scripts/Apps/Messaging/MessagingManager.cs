@@ -821,16 +821,14 @@ namespace Michsky.DreamOS
             DynamicMessageHandler tempHandler = tempHandlerObj.AddComponent<DynamicMessageHandler>();
             tempHandler.manager = this;
 
-            if (!string.IsNullOrEmpty(chatList[layoutIndex].chatAsset.storyTeller[storyTellerIndex].messageContent) && chatList[layoutIndex].chatAsset.storyTeller[storyTellerIndex].messageAuthor == MessagingChat.MessageAuthor.Self)
-            {
-                tempHandler.StartCoroutine(tempHandler.HandleStoryTeller(chatList[layoutIndex].chatAsset.storyTeller[storyTellerIndex].messageLatency, layoutIndex, false));
-            }
+            // Start the coroutine to handle the StoryTeller message
+            tempHandler.StartCoroutine(tempHandler.HandleStoryTeller(
+                chatList[layoutIndex].chatAsset.storyTeller[storyTellerIndex].messageLatency,
+                layoutIndex,
+                chatList[layoutIndex].chatAsset.storyTeller[storyTellerIndex].messageAuthor == MessagingChat.MessageAuthor.Individual
+            ));
 
-            else if (!string.IsNullOrEmpty(chatList[layoutIndex].chatAsset.storyTeller[storyTellerIndex].messageContent) && chatList[layoutIndex].chatAsset.storyTeller[storyTellerIndex].messageAuthor == MessagingChat.MessageAuthor.Individual)
-            {
-                tempHandler.StartCoroutine(tempHandler.HandleStoryTeller(chatList[layoutIndex].chatAsset.storyTeller[storyTellerIndex].messageLatency, layoutIndex, true));
-            }
-
+            // Create reply options
             for (int i = 0; i < chatList[layoutIndex].chatAsset.storyTeller[storyTellerIndex].replies.Count; i++)
             {
                 GameObject strObj = Instantiate(storyTellerObject, new Vector3(0, 0, 0), Quaternion.identity);

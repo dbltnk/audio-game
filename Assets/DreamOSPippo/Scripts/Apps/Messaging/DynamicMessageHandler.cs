@@ -49,17 +49,37 @@ namespace Michsky.DreamOS
 
             Destroy(messageTimerObject);
 
-            // Find the chat layout
             ChatLayoutPreset layout = manager.chatViewer.Find(manager.chatList[layoutIndex].chatTitle).GetComponent<ChatLayoutPreset>();
+            MessagingChat.StoryTeller storyTeller = manager.chatList[layoutIndex].chatAsset.storyTeller[manager.storyTellerIndex];
 
-            // Check for localization key
-            string tempLocKey = manager.chatList[layoutIndex].chatAsset.storyTeller[manager.storyTellerIndex].messageKey;
+            switch (storyTeller.objectType)
+            {
+                case MessagingChat.ObjectType.Message:
+                    if (isIndividual)
+                        manager.CreateCustomIndividualMessage(layout, storyTeller.messageContent, manager.GetTimeData(), storyTeller.messageKey);
+                    else
+                        manager.CreateCustomMessage(layout, storyTeller.messageContent, manager.GetTimeData(), storyTeller.messageKey);
+                    break;
 
-            // Create the message
-            if (isIndividual) { manager.CreateCustomIndividualMessage(layout, manager.chatList[layoutIndex].chatAsset.storyTeller[manager.storyTellerIndex].messageContent, manager.GetTimeData(), tempLocKey); }
-            else { manager.CreateCustomMessage(layout, manager.chatList[layoutIndex].chatAsset.storyTeller[manager.storyTellerIndex].messageContent, manager.GetTimeData(), tempLocKey); }
+                case MessagingChat.ObjectType.AudioMessage:
+                    if (isIndividual)
+                        manager.CreateIndividualAudioMessage(layout, storyTeller.audioMessage, manager.GetTimeData());
+                    else
+                        manager.CreateAudioMessage(layout, storyTeller.audioMessage, manager.GetTimeData());
+                    break;
 
-            if (manager.stIndexHelper == manager.currentLayout && manager.storyTellerAnimator.gameObject.activeInHierarchy) { manager.ShowStorytellerPanel(); }
+                case MessagingChat.ObjectType.ImageMessage:
+                    if (isIndividual)
+                        manager.CreateIndividualImageMessage(layout, storyTeller.imageMessage, "Image from Storyteller", "", manager.GetTimeData());
+                    else
+                        manager.CreateImageMessage(layout, storyTeller.imageMessage, "Image from Storyteller", "", manager.GetTimeData());
+                    break;
+            }
+
+            if (manager.stIndexHelper == manager.currentLayout && manager.storyTellerAnimator.gameObject.activeInHierarchy)
+            {
+                manager.ShowStorytellerPanel();
+            }
             manager.isStoryTellerOpen = true;
         }
 
@@ -78,19 +98,27 @@ namespace Michsky.DreamOS
         IEnumerator FinishStoryTeller(float timer, int layoutIndex)
         {
             yield return new WaitForSeconds(timer);
-          
-            // Find the chat layout
+
             ChatLayoutPreset layout = manager.chatViewer.Find(manager.chatList[layoutIndex].chatTitle).GetComponent<ChatLayoutPreset>();
+            MessagingChat.StoryTellerItem reply = manager.chatList[layoutIndex].chatAsset.storyTeller[manager.storyTellerIndex].replies[manager.stItemIndex];
 
-            // Check for localization key
-            string tempLocKey = manager.chatList[layoutIndex].chatAsset.storyTeller[manager.storyTellerIndex].replies[manager.stItemIndex].feedbackKey;
+            // Always send the feedback text message first
+            manager.CreateIndividualMessage(layout, reply.replyFeedback, reply.feedbackKey);
 
-            // Create the message
-            manager.CreateIndividualMessage(layout, manager.chatList[layoutIndex].chatAsset.storyTeller[manager.storyTellerIndex].replies[manager.stItemIndex].replyFeedback, tempLocKey);
-
-            if (!string.IsNullOrEmpty(manager.chatList[layoutIndex].chatAsset.storyTeller[manager.storyTellerIndex].replies[manager.stItemIndex].callAfter))
+            // Then, if there's media in the feedback, send it as a separate message
+            switch (reply.objectType)
             {
-                manager.CreateStoryTeller(manager.chatList[layoutIndex].chatTitle, manager.chatList[layoutIndex].chatAsset.storyTeller[manager.storyTellerIndex].replies[manager.stItemIndex].callAfter);
+                case MessagingChat.ObjectType.AudioMessage:
+                    manager.CreateIndividualAudioMessage(layout, reply.audioMessage, manager.GetTimeData());
+                    break;
+                case MessagingChat.ObjectType.ImageMessage:
+                    manager.CreateIndividualImageMessage(layout, reply.imageMessage, "Image Feedback", "", manager.GetTimeData());
+                    break;
+            }
+
+            if (!string.IsNullOrEmpty(reply.callAfter))
+            {
+                manager.CreateStoryTeller(manager.chatList[layoutIndex].chatTitle, reply.callAfter);
             }
 
             Destroy(messageTimerObject);

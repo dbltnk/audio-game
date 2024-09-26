@@ -64,6 +64,11 @@ namespace Michsky.DreamOS
 
             [Header("Localization")]
             public string messageKey;
+
+            [Header("Media")]
+            public ObjectType objectType = ObjectType.Message;
+            public AudioClip audioMessage;
+            public Sprite imageMessage;
         }
 
         [System.Serializable]
@@ -81,6 +86,11 @@ namespace Michsky.DreamOS
             public string briefKey;
             public string contentKey;
             public string feedbackKey;
+
+            [Header("Media")]
+            public ObjectType objectType = ObjectType.Message;
+            public AudioClip audioMessage;
+            public Sprite imageMessage;
         }
 
         public enum MessageAuthor { Self, Individual }

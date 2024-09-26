@@ -17,22 +17,29 @@ namespace Michsky.DreamOS
             ButtonManager strButton = gameObject.GetComponent<ButtonManager>();
             strButton.onClick.AddListener(delegate
             {
-                string tempMsg = null;
-
-                if (!string.IsNullOrEmpty(replyLocKey)) { tempMsg = replyLocKey; }
-                else { tempMsg = msgManager.chatList[layoutIndex].chatAsset.storyTeller[msgManager.storyTellerIndex].replies[itemIndex].replyContent; }
-
                 msgManager.HideStorytellerPanel();
+
+                var reply = msgManager.chatList[layoutIndex].chatAsset.storyTeller[msgManager.storyTellerIndex].replies[itemIndex];
+
+                // Always send the text message first
+                string tempMsg = !string.IsNullOrEmpty(replyLocKey) ? replyLocKey : reply.replyContent;
                 msgManager.CreateMessage(layout, tempMsg);
+
+                // Then, if there's media, send it as a separate message
+                switch (reply.objectType)
+                {
+                    case MessagingChat.ObjectType.AudioMessage:
+                        msgManager.CreateAudioMessage(layout, reply.audioMessage);
+                        break;
+                    case MessagingChat.ObjectType.ImageMessage:
+                        msgManager.CreateImageMessage(layout, reply.imageMessage, "Image Reply", "");
+                        break;
+                }
+
                 msgManager.stItemIndex = itemIndex;
                 msgManager.isStoryTellerOpen = false;
 
-                // We'll allow empty for now - Alex
-                //if (!string.IsNullOrEmpty(msgManager.chatList[layoutIndex].chatAsset.storyTeller[msgManager.storyTellerIndex].replies[itemIndex].replyFeedback))
-                //{
-                handler.StartCoroutine(handler.HandleStoryTellerLatency(msgManager.chatList[layoutIndex].chatAsset.storyTeller[msgManager.storyTellerIndex].replies[itemIndex].feedbackLatency, layoutIndex, itemIndex));
-                //}
-                //else { Debug.LogWarning("EMPTY! " + msgManager.chatList[layoutIndex].chatAsset.storyTeller[msgManager.storyTellerIndex].replies[itemIndex].replyFeedback); }
+                handler.StartCoroutine(handler.HandleStoryTellerLatency(reply.feedbackLatency, layoutIndex, itemIndex));
 
                 for (int i = 0; i < msgManager.storytellerReplyEvents.Count; ++i)
                 {
