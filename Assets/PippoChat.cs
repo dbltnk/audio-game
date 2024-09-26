@@ -33,11 +33,19 @@ public class PippoChat : MonoBehaviour
 
     IEnumerator StartChat()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.0f);
         notificationManager.popupDuration = 7.0f;
+
+        // Claire's email
         notificationManager.CreateNotification(mailIcon, "New Email", "Claire Salisbury: Vince, we've given you access ...");
-        yield return new WaitForSeconds(3.0f);
+
+        // Pavel's first message thread
+        yield return new WaitForSeconds(5.0f);
         messagingManager.CreateStoryTeller("PavelTest", "Pavel_00");
+
+        // triggers another chat message after a 1m delay
+        yield return new WaitForSeconds(60.0f);
+        messagingManager.CreateStoryTeller("PavelTest", "Pavel_triggered");
     }
 
     public void CreateNotification(string title, string content)

@@ -422,3 +422,39 @@ MonoBehaviour:
     objectType: 0
     audioMessage: {fileID: 0}
     imageMessage: {fileID: 0}
+  - itemID: Pavel_triggered
+    messageAuthor: 1
+    messageContent: I was just thinking about you, my friend!
+    messageLatency: 1
+    messageTimer: 1
+    replies:
+    - replyID: Pavel_triggered_Reply_0
+      replyBrief: Awesome!
+      replyContent: Nice! Same here!
+      replyFeedback: Jinx!
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: END
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
+    - replyID: Pavel_triggered_Reply_1
+      replyBrief: Creepy!
+      replyContent: "Weeeiiiirrrdddd \u2026."
+      replyFeedback: Oh noes!
+      feedbackLatency: 1
+      feedbackTimer: 1.5
+      callAfter: END
+      briefKey: 
+      contentKey: 
+      feedbackKey: 
+      objectType: 0
+      audioMessage: {fileID: 0}
+      imageMessage: {fileID: 0}
+    messageKey: 
+    objectType: 0
+    audioMessage: {fileID: 0}
+    imageMessage: {fileID: 0}
